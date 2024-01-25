@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Play</title>
+    <script>
+        // Things to Do:
+        // - Browser Detection - MUST be te fist thing to do on every page.
+        if(!document.getElementById){
+            // Older Browser - Get rid of them.
+            window.location='legacy.html';
+        }
+
+        let newWin;
+
+        // Creates new window object and stores in global object variable.
+        const makeNew = () => {
+            // newWin = window.open('', 'name', 'height=300, width=250, top=250, left=300');
+
+            // // Write into the window
+            // newWin.document.write('Hello World!');
+
+            newWin = window.open('https://www.rit.edu', 'name', 'height=300, width=250, top=250, left=300');
+        };
+
+        // Closes the window stored in the global object variable, if any.
+        const closeNew = () => {
+            newWin.close();
+        };
+
+    </script>
+
+    <script src="assets/src/apps.js" async></script>
+    <!-- Script load in parallel, launched as soon as loaded. -->
+
+    <script src="assets/src/apps.js" defer></script>
+    <!-- Script load in parallel, launched after the page is parsed. -->
+
+    <script src="assets/src/apps.js"></script>
+    <!-- If neither, script is downloaded and executed immediately.
+         Blocks all parsing until it's complete.  -->
+</head>
+
+<body>
+    <form>
+        <input type="button" value="Create New Window!" onclick="makeNew()"><br/>
+        <input type="button" value="Close the New Window!" onclick="closeNew()"><br/>
+    </form>
+</body>
+</html>
