@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+
+    <script>
+        const val = () => {
+            // Check all important input and make sure they have data.
+            // if(document.forms[0].elements[0].value == '') {}
+            let firstName = document.getElementById('fn');
+            let lastName = document.getElementById('ln');
+            let emptyFields = [];
+            let ret = true;
+            
+            if(firstName.value == '') {
+                firstName.style.backgroundColor = "pink";
+                emptyFields.push(firstName);
+                ret = false;
+            }
+
+            if(lastName.value == '') {
+                lastName.style.backgroundColor = "pink";
+                emptyFields.push(lastName);
+                ret = false;
+            }
+
+            if(!ret){
+                let alertString = 'Warning! Following fields must be completed:\n';
+                for (let i = 0; i < emptyFields.length; i++)
+                {
+                    if (i == emptyFields.length - 1) { alertString += `${emptyFields[i]}`;}
+                    else { alertString += `${emptyFields[i]}\n`;}
+                }
+                alert(alertString);
+            }
+
+            return ret;
+        };
+    </script>
+</head>
+<body>
+    <form action="page.php" method="get" onsubmit="return val()">
+        First: <input type="text" name="fName" id="fn" placeholder="Enter First Name..."><br>
+        Last: <input type="text" name="lName" id="ln" placeholder="Enter Last Name..."><br>
+        <input type="submit" value="Go">
+    </form>
+
+    <!-- page.php?fName=Conor&lName=Race -->
+</body>
+</html>

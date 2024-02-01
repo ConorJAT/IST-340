@@ -4,12 +4,32 @@
 	<meta charset="utf-8" />
     <title>Form Play</title>
 	<script type="text/javascript">
-  		
+  		const go = (element) => {
+            console.log(element.value);
+
+            if (element.value != 'none'){
+                window.location = element.value;
+            }
+        };
+
+        const submitColor = () => {
+            let output = document.getElementById('output');
+            let colors = document.getElementsByName('color');
+
+            for (let r_btn of colors){
+                if (r_btn.checked){
+                    output.style.color = 'white';
+                    output.style.backgroundColor = output.value = r_btn.value;
+                    // output.value = r_btn.value;
+                    return;
+                }
+            }
+        };
 	</script>
 </head>
 <body>
     <form id="myForm">
-        <select>
+        <select onchange="go(this)">
             <option value="none">
                 --Select page--
             </option>
@@ -25,11 +45,11 @@
         </select>
         <hr />
         <p>Which did you choose?<br />
-        <label for="r"><input type="radio" value="red" id="r"/> Red</label><br/>
-        <label for="g"><input type="radio" value="green" id="g"/> Green</label><br/>
-        <label for="b"><input type="radio" value="blue" id="b"/> Blue</label><br/>
-        <input type="button" value="Color choice" /></p>
-        <p>Your favorite color is: <input type="text" name="favorite" value="" /></p>
+        <label for="r"><input type="radio" name="color" value="red" id="r"/> Red</label><br/>
+        <label for="g"><input type="radio" name="color" value="green" id="g"/> Green</label><br/>
+        <label for="b"><input type="radio" name="color" value="blue" id="b"/> Blue</label><br/>
+        <input type="button" value="Color choice" onclick="submitColor()"/></p>
+        <p>Your favorite color is: <input type="text" name="favorite" value="" id="output"/></p>
     </form>
 </body>
 </html>
