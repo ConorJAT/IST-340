@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DOM Creation</title>
+<script>
+	//some possible methods/props you will use! (know them!)
+	//createElement, createTextNode, setAttribute, appendChild, replaceChild, removeChild, cloneNode
+	//childNodes[], firstChild, nodeType, nodeName, nodeValue, 
+	//getElementById, getElementsByTagName, getElementsByName, getElementsByClassName
+	
+	function createText(){
+		// Make an h1 element!
+		let hElement = document.createElement('h1');
+		// <h1/>
+
+		hElement.setAttribute('style', 'color:teal');
+		// <h1 style='color:teal'/>
+
+		hElement.id = 'header';
+		// <h1 style='color:teal' id='header'/>
+
+		hElement.appendChild(document.createTextNode('IST 340 is really cool!'));
+		// <h1 style='color:teal' id='header'>IST 340 is really cool!</h1>
+
+		document.getElementsByTagName('body')[0].appendChild(hElement);
+		// Put it on the page!
+
+
+		// Make an img element!
+		let imgElement = document.createElement('img');
+		// <img/>
+
+		imgElement.setAttribute('src', './california.jpg');
+		// <img src='./california.jpg'/>
+
+		document.getElementsByTagName('body')[0].appendChild(imgElement);
+		// Put it on the page!
+
+
+		// Make a radio button element!
+		let radElement = document.createElement('input');
+		// <input/>
+
+		radElement.setAttribute('type', 'radio');
+		// <input type='radio'/>
+
+		radElement.setAttribute('name', 'test');
+		// <input type='radio' name='test'/>
+
+		let label = document.createElement('label');
+		// <label/>
+
+		label.setAttribute('for', 'test');
+		// <label for='test'/>
+
+		label.appendChild(document.createTextNode('Testing'));
+		// <label for='test'>Testing</label>
+
+		label.appendChild(radElement);
+		// <label for='test'>Testing<input type='radio' name='test'/></label>
+
+		document.getElementsByTagName('body')[0].appendChild(label);
+		// Put it on the page!
+	}
+
+</script>
+</head>
+<body>
+<div id="buttons" style="position:absolute; top:8px; left:200px">
+  <button onclick="createText();">Create It!</button>
+</div>
+<body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
