@@ -5,8 +5,46 @@
 	<title>DOM Placement</title>
 	<script>
 		function changeMe(){
-		
+      let rElement = document.createElement('input');
+
+      rElement.setAttribute('type', 'range');
+
+      // node.appendChild(element)
+      // document.body.appendChild(rElement);
+      // document.querySelector('#text').appendChild(rElement);
+      // $('text').appendChild(rElement);
+
+
+      // node.insertBefore(element, beforeElement);
+      // $$('body', 0).insertBefore(rElement, document.body);
+      // $$('body', 0).insertBefore(rElement, $$('body', 0).childNodes[0]);
+
+      // Place before the red text box.
+      // $('text').insertBefore(rElement, $('text').firstChild);
+
+      // Place in between red and orange text boxes.
+      // document.querySelector('#everything').insertBefore(rElement, document.querySelector('#moreText'));
+      // $('everything').insertBefore(rElement, $('moreText'));
+      // $('everything').insertBefore(rElement, $$('hr', 0));
+
+
+      // node.removeChild(element)
+      // $('everything').removeChild($('moreText'));
+      // $('moreText').removeChild($('moreText').firstChild);
+
+
+      // node.replaceChild(element, childBeingReplaced)
+      // $('moreText').replaceChild(rElement, $('moreText').firstChild);
+
+
+      // node.cloneChild()
+      // let content = $('everything').cloneNode(true);
+      // $$('body', 0).appendChild(content);
+
 		}
+
+    const $ = (id) => { return document.getElementById(id); };
+    const $$ = (tag, num) => { return document.getElementsByTagName(tag)[num]; };
 	
 	</script>
 </head>
