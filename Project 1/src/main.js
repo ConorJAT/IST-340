@@ -39,19 +39,21 @@ const createNode = (array, jsonObj) => {
 
     // 5.) Add an event listener onto the select element for any changes in value.
     selectElement.addEventListener('change', () => {
-        // 5a.) If the value is null, don't build anything.
+        let siblingElement = selectElement.parentNode.nextElementSibling;
+
+        // 5a.) If the value is null, remove any preceding child nodes and don't build anything.
         if (selectElement.value === 'null'){
+            if (siblingElement) { removeSiblings(siblingElement); }
             return;
+
         // 5b.) If the node is an end node, build the end node and form.
         } else if (selectElement.getAttribute('end-node') === 'true') {
             console.log("Creating end node.")
             return;
+
         // 5c.) If not an end node, remove any preceding child nodes and build another standard node.
         } else {
-            let siblingElement = selectElement.parentNode.nextElementSibling;
-            if (siblingElement) {
-                removeSiblings(siblingElement);
-            }
+            if (siblingElement) { removeSiblings(siblingElement); }
             createNode(jsonObj[selectElement.value], jsonObj);
         }
     });
