@@ -1,0 +1,65 @@
+{
+    "base": ["Planeswalker or legendary creature?", "null", "false", 
+             "Planeswalker", "p-walker", "false", 
+             "Lengendary Creature", "l-creature", "false"],
+
+    "p-walker": ["Plane of residence?", "null", "false", 
+                 "Kaladesh", "kaladesh", "false", 
+                 "Ravnica", "ravnica", "false", 
+                 "Zendikar", "zendikar", "false"],
+
+    "kaladesh": ["Faction?", "null", "false", 
+                 "Revolutionary", "chandra", "true", 
+                 "Consulate", "dovin", "true"],
+
+    "ravnica": ["Guild loyalty?", "null", "false", 
+                "Izzet", "ral", "true", 
+                "Golgari", "vraska", "true",
+                "No Allegiance", "jace", "true"],
+
+    "zendikar": ["Zendikari race?", "null", "false",
+                 "Elf", "nissa", "true", 
+                 "Kor", "nahiri", "true",
+                 "Merfolk", "kiora", "true"],
+
+    "l-creature": ["Creature identity?", "null", "false",
+                   "Angel", "angel", "false",
+                   "God", "god", "false",
+                   "Demonlord", "demon", "false"],
+
+    "angel": ["Notable ability?", "null", "false",
+              "Proliferate", "atraxa", "true",
+              "Indestructable Boardstate", "avacyn", "true",
+              "Boros Combat Support", "aurelia", "true"],
+
+    "demon": ["Scheming location?", "null", "false",
+              "Innistrad", "griselbrand", "true",
+              "Amonkhet", "razaketh", "true",
+              "Dominaria", "belzenlok", "true"],
+
+    "god": ["Plane of worship?", "null", "false",
+            "Theros", "theros", "false",
+            "Ixalan", "ixalan", "false",
+            "Amonkhet", "amonkhet", "false"],
+
+    "theros": ["Color identity?", "null", "false",
+               "White", "heliod", "true",
+               "Blue", "thassa", "true",
+               "Black", "erebos", "true",
+               "Red", "purphoros", "true",
+               "Green", "nylea", "true"],
+
+    "ixalan": ["Color identity?", "null", "false",
+               "White", "ojer-taq", "true",
+               "Blue", "ojer-pak", "true",
+               "Black", "aclozotz", "true",
+               "Red", "ojer-axo", "true",
+               "Green", "ojer-kas", "true"],
+
+    "amonkhet": ["Color identity?", "null", "false",
+                 "White", "oketra", "true",
+                 "Blue", "kefnet", "true",
+                 "Black", "bontu", "true",
+                 "Red", "hazoret", "true",
+                 "Green", "rhonas", "true"]
+}
