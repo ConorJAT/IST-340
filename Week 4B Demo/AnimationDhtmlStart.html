@@ -10,40 +10,71 @@
 		}
 	</style>
   	<script type="text/javascript">
-		//a universal dhtml...
+		// Four Rules of DHTML
+		// - 1. dom.style.rule = value;
+		//		document.querySelector('#thing').style.color = 'red';
 
+		// - 2. For the rule, if hyphen is present, drop and cap next.
+		//		font-family === fontFamily
+
+		// - 3. Everything to the right of the equal sign is a string, get or set.
+		
+		// - 4. Remember to add units.
+		
+		//a universal dhtml...
+		const changeStyle = (rule, value) => {
+			const result = document.getElementById('coolBeans');
+			result.style[rule] = value;
+		};
   	</script>
 </head>
 <body>
 	<h2>DHTML review plus...</h2>
-	<div style="border:2px solid grey;width:10em;margin-bottom:30px;">
+	<div onmouseenter="this.style.color='red';" onmouseleave="this.style.color='';" style="border:2px solid grey;width:10em;margin-bottom:30px;">
 		mouseover test
 	</div>
 	<form action="" method="">
- 		Put in a color name (or hex):<input type="text" onchange=""/><br/>
- 		Put in a font size (like 12pt):<input type="text" onchange=""/><br/>
- 		Put in a font family:<input type="text" onchange=""/><br/>
- 		Put in a new left (like 100px):<input type="text" onchange=""/><br/>
- 		Put in a new top (like 200px):<input type="text" onchange=""/><br/>
- 		Put in a background color:<input type="text" onchange=""/><br/>
+ 		Put in a color name (or hex):<input type="text" onchange="changeStyle('color', this.value);"/><br/>
+ 		Put in a font size (like 12pt):<input type="text" onchange="changeStyle('fontSize', this.value);"/><br/>
+ 		Put in a font family:<input type="text" onchange="changeStyle('fontFamily', this.value);"/><br/>
+ 		Put in a new left (like 100px):<input type="text" onchange="changeStyle('left', this.value);"/><br/>
+ 		Put in a new top (like 200px):<input type="text" onchange="changeStyle('top', this.value);"/><br/>
+ 		Put in a background color:<input type="text" onchange="changeStyle('backgroundColor', this.value);"/><br/>
+		Put in a padding:<input type="text" onchange="changeStyle('padding', this.value);"/><br/>
 	</form> 
 	<section id="coolBeans" style="border:2px solid red;width:10em;position:relative;">Some text to control</section>
 
 
 	<hr style="margin-top:2em;"/>
 	<h2>requestAnimationFrame()</h2>
-	<div id="move1" style="border:2px solid green;width:10em;position:relative;left:0px" onclick="">
+	<div id="move1" style="border:2px solid green;width:10em;position:relative;left:0px" onclick="requestAnimationFrame(simpleAnim);">
 		First Slide Test
 	</div>
 	<script>
+		// Hard Coded Iteration
+		let target = document.getElementById('move1');
 
+		const simpleAnim = () => {
+			let pos = parseInt(target.style.left);
+			if (pos < 700){
+				target.style.left = pos + 5 + 'px';
+				requestAnimationFrame(simpleAnim);
+			}
+		};
 	</script>
 	
-	<div id="move2" style="border:2px solid aqua;width:10em;position:relative;left:0px" onclick="">
+
+	<div id="move2" style="border:2px solid aqua;width:10em;position:relative;left:0px" onclick="requestAnimationFrame(() => { betterAnim(this, 800, 7); });">
 		More Control Slide Test
 	</div>
 	<script>
-
+		const betterAnim = (element, end, delta) => {
+			let pos = parseInt(element.style.left);
+			if (pos < end){
+				element.style.left = pos + delta + 'px';
+				requestAnimationFrame(() => { betterAnim(element, end, delta); });
+			}
+		};
 	</script>
 	
 </body>
