@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<script>
+			const init = () => {
+				let btn = document.createElement('button');
+				btn.appendChild(document.createTextNode('Click Me!'));
+
+				// btn.setAttribute('onclick', 'test()');
+				// btn.onclick = test;
+				btn.addEventListener('click', test);
+
+				document.body.appendChild(btn);
+			};
+
+			const test = (e) => {
+				console.log(e.target);
+			};
+		</script>
+	</head>
+	<body onload='init()'>
+
+	</body>
+</html>

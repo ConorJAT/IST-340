@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Events</title>
+	<script type="text/javascript">
+	//For Image 1 --------------------------------------------------------------------
+	//All as HTML attributes
+	// -since the call to 'this' is within the attribute, it refers to the element.
+	document.getElementsByTagName('img')[0].setAttribute('onclick', 'func()');
+	
+	//For Image 2 --------------------------------------------------------------------
+	//assign an event to Image 2
+	document.getElementsByTagName('img')[1].onclick = func;
+	  
+    //For Image 3 --------------------------------------------------------------------
+	//attach an event to Image 3
+	document.getElementsByTagName('img')[2].addEventListener('click', func);
+
+
+	</script>
+</head>
+<body onload="">
+
+  <h1>Image 1 (html attribute):</h1><img src="pic.jpg"/>
+  
+  <h1>Image 2 (JavaScript property):</h1><img src="pic.jpg"/>
+  
+  <h1>Image 3 (JavaScript listener):</h1><img src="pic.jpg"/>
+
+</body>
+</html>
