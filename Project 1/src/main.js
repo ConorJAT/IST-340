@@ -63,6 +63,7 @@ const createNode = (array, jsonObj) => {
     divElement.appendChild(selectElement);
     content.appendChild(divElement);
 
+    // 7.) Animate the elements sliding into place.
     requestAnimationFrame(() => { slideIn(divElement, 0, 8); });
 };
 
@@ -70,6 +71,11 @@ const createEndNode = () => {
 
 };
 
+// slideIn(element, end, delta) - As elements are being added onto the page, animate
+//                                them sliding into place.
+// element - Element being animated.
+// end - End location where element is going to be.
+// delta - How much is the element moving per frame.
 const slideIn = (element, end, delta) => {
     let pos = parseInt(element.style.left);
 	if (pos < end){
@@ -77,14 +83,6 @@ const slideIn = (element, end, delta) => {
 		requestAnimationFrame(() => { slideIn(element, end, delta); });
 	}
 };
-
-const slideOut = (element, end, delta) => {
-    let pos = parseInt(element.style.left);
-	if (pos > end){
-		element.style.left = pos + delta + 'px';
-		requestAnimationFrame(() => { slideOut(element, end, delta); });
-	}
-}
 
 // removeSiblings(element) - Recursively removes any and all siblings in front of
 //                           the passed in parameter.
