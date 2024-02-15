@@ -18,7 +18,7 @@ const getData = async () => {
 // jsonObj - JSON object that holds all the data.
 const createNode = (array, jsonObj) => {
     // 1.) Get superior div container (holds all select divs).
-    let content = document.getElementById('content');
+    let content = document.getElementById('questions');
 
     // 2.) Create new child div and select elements.
     let divElement = document.createElement('div');
@@ -95,7 +95,7 @@ const removeSiblings = (element) => {
         removeSiblings(element.nextElementSibling);
     }
 
-    document.getElementById('content').removeChild(element);
+    document.getElementById('questions').removeChild(element);
 };
 
 init();

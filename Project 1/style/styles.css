@@ -1,10 +1,41 @@
+#grid{
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header    header  header"
+        "questions content submit"
+        "footer    footer  footer";
+}
+
+header{
+    grid-area: header;
+
+    text-align: center;
+}
+
+#questions{
+    grid-area: questions;
+}
+
+#char-content{
+    grid-area: content;
+}
+
+#submit-form{
+    grid-area: submit;
+}
+
+footer{
+    grid-area: footer;
+}
+
 .container {
-    position: relative;
-    
-    width: 360px;
+    width: 95%;
     height: 90px;
 
-    margin: 20px;
+    margin: 0 auto;
+    margin-top: 20px;
 
     background-color: gray;
     border: 1px solid black;
