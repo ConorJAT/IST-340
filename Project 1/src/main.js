@@ -22,15 +22,17 @@ const createNode = (array, jsonObj) => {
 
     // 2.) Create new child div and select elements.
     let divElement = document.createElement('div');
+    let h3Element = document.createElement('h3');
     let selectElement = document.createElement('select');
 
     // 3.) Set class and 'end-node' attributes.
     divElement.setAttribute('class', 'container');
     divElement.style.left = '-400px';
-    selectElement.setAttribute('end-node', array[0]);
+    h3Element.appendChild(document.createTextNode(array[0]))
+    selectElement.setAttribute('end-node', array[1]);
 
     // 4.) Populate select element with option elements (data from current array).
-    for (let i = 1; i < array.length; i += 2){
+    for (let i = 2; i < array.length; i += 2){
         let selectOption = document.createElement('option');
         selectOption.setAttribute('value', array[i+1]);
         selectOption.appendChild(document.createTextNode(array[i]));
@@ -60,6 +62,7 @@ const createNode = (array, jsonObj) => {
     });
 
     // 6.) Add the select element to the div and the div to the super div container.
+    divElement.appendChild(h3Element);
     divElement.appendChild(selectElement);
     content.appendChild(divElement);
 
