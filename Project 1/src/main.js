@@ -26,6 +26,7 @@ const createNode = (array, jsonObj) => {
 
     // 3.) Set class and 'end-node' attributes.
     divElement.setAttribute('class', 'container');
+    divElement.style.left = '-400px';
     selectElement.setAttribute('end-node', array[0]);
 
     // 4.) Populate select element with option elements (data from current array).
@@ -61,16 +62,34 @@ const createNode = (array, jsonObj) => {
     // 6.) Add the select element to the div and the div to the super div container.
     divElement.appendChild(selectElement);
     content.appendChild(divElement);
+
+    requestAnimationFrame(() => { slideIn(divElement, 0, 8); });
 };
 
 const createEndNode = () => {
 
 };
 
+const slideIn = (element, end, delta) => {
+    let pos = parseInt(element.style.left);
+	if (pos < end){
+		element.style.left = pos + delta + 'px';
+		requestAnimationFrame(() => { slideIn(element, end, delta); });
+	}
+};
+
+const slideOut = (element, end, delta) => {
+    let pos = parseInt(element.style.left);
+	if (pos > end){
+		element.style.left = pos + delta + 'px';
+		requestAnimationFrame(() => { slideOut(element, end, delta); });
+	}
+}
+
 // removeSiblings(element) - Recursively removes any and all siblings in front of
 //                           the passed in parameter.
 // element - Element to remove all preceding siblings. 
-const removeSiblings = (element) => {
+const removeSiblings = async (element) => {
     if (element.nextElementSibling){
         removeSiblings(element.nextElementSibling);
     }
