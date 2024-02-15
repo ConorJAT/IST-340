@@ -27,7 +27,7 @@ const createNode = (array, jsonObj) => {
 
     // 3.) Set class and 'end-node' attributes.
     divElement.setAttribute('class', 'container');
-    divElement.style.left = '-400px';
+    divElement.style.opacity = '0';
     h3Element.appendChild(document.createTextNode(array[0]))
     selectElement.setAttribute('end-node', array[1]);
 
@@ -67,30 +67,30 @@ const createNode = (array, jsonObj) => {
     content.appendChild(divElement);
 
     // 7.) Animate the elements sliding into place.
-    requestAnimationFrame(() => { slideIn(divElement, 0, 8); });
+    requestAnimationFrame(() => { fadeIn(divElement, 1, .02); });
 };
 
 const createEndNode = () => {
 
 };
 
-// slideIn(element, end, delta) - As elements are being added onto the page, animate
-//                                them sliding into place.
+// fadeIn(element, end, delta) - As elements are being added onto the page, animate
+//                               them fading onto the page.
 // element - Element being animated.
-// end - End location where element is going to be.
-// delta - How much is the element moving per frame.
-const slideIn = (element, end, delta) => {
-    let pos = parseInt(element.style.left);
-	if (pos < end){
-		element.style.left = pos + delta + 'px';
-		requestAnimationFrame(() => { slideIn(element, end, delta); });
+// end - End opacity element is going to be.
+// delta - How much is the element fading per frame.
+const fadeIn = (element, end, delta) => {
+    let opacity = parseFloat(element.style.opacity);
+	if (opacity < end){
+		element.style.opacity = `${opacity + delta}`;
+		requestAnimationFrame(() => { fadeIn(element, end, delta); });
 	}
 };
 
 // removeSiblings(element) - Recursively removes any and all siblings in front of
 //                           the passed in parameter.
 // element - Element to remove all preceding siblings. 
-const removeSiblings = async (element) => {
+const removeSiblings = (element) => {
     if (element.nextElementSibling){
         removeSiblings(element.nextElementSibling);
     }
