@@ -42,6 +42,7 @@ const createNode = (array, jsonObj) => {
 
     // 5.) Add an event listener onto the select element for any changes in value.
     selectElement.addEventListener('change', () => {
+        removeContent();
         let siblingElement = selectElement.parentNode.nextElementSibling;
 
         // 5a.) If the value is null, remove any preceding child nodes and don't build anything.
@@ -166,5 +167,20 @@ const removeSiblings = (element) => {
 
     document.getElementById('questions').removeChild(element);
 };
+
+const removeContent = () => {
+    const content = document.getElementById('char-content');
+    const contentChildren = content.childNodes;
+    for (let i = contentChildren.length - 1; i > -1; i--){
+        content.removeChild(contentChildren[i]);
+    }
+
+    const form = document.getElementById('submit-form');
+    const formChildren = form.childNodes;
+    for (let i = formChildren.length - 1; i > -1; i--){
+        form.removeChild(formChildren[i]);
+    }
+
+}
 
 init();
