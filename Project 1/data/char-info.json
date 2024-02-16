@@ -73,5 +73,14 @@
                  "Blue", "kefnet",
                  "Black", "bontu",
                  "Red", "hazoret",
-                 "Green", "rhonas"]
+                 "Green", "rhonas"],
+
+    "chandra": {
+        "name": "Chandra Nalaar",
+        "species": "Human",
+        "colors": "Red",
+        "homeplane": "Kaladesh",
+        "images": ["./images/chandra-1.png", "./images/chandra-2.png", "./images/chandra-3.png"],
+        "img-alt": ["Image of Chandra, Torch of Defiance card.", "Image of Chandra, Bold Pyromancer card.", "Image of Chandra, Beacon's Hope card."]
+    }
 }

@@ -52,6 +52,7 @@ const createNode = (array, jsonObj) => {
         // 5b.) If the node is an end node, build the end node and form.
         } else if (selectElement.getAttribute('end-node') === 'true') {
             console.log("Creating end node.")
+            createEndNode(jsonObj[selectElement.value]);
             return;
 
         // 5c.) If not an end node, remove any preceding child nodes and build another standard node.
@@ -70,8 +71,76 @@ const createNode = (array, jsonObj) => {
     requestAnimationFrame(() => { fadeIn(divElement, 1, .02); });
 };
 
-const createEndNode = () => {
+const createEndNode = (character) => {
+    // Create content section!
+    const charContent = document.getElementById('char-content');
+    const charImg = document.createElement('img');
+    const charDesc = document.createElement('div');
 
+    charImg.setAttribute('src', character['images'][0]);
+    charImg.setAttribute('alt', character['img-alt'][0]);
+    charImg.setAttribute('id', 'char-img');
+    charContent.appendChild(charImg);
+
+
+    const charName = document.createElement('h3');
+    const charSpecies = document.createElement('p');
+    const charColor = document.createElement('p');
+    const charHome = document.createElement('p');
+
+    charName.appendChild(document.createTextNode(`Your MtG Character is: ${character['name']}`));
+    charSpecies.appendChild(document.createTextNode(`Species: ${character['species']}`));
+    charColor.appendChild(document.createTextNode(`Color Identity: ${character['colors']}`));
+    charHome.appendChild(document.createTextNode(`Home Plane: ${character['homeplane']}`));
+
+    charDesc.appendChild(charName);
+    charDesc.appendChild(charSpecies);
+    charDesc.appendChild(charColor);
+    charDesc.appendChild(charHome);
+
+    charDesc.setAttribute('id', 'char-desc');
+    charContent.appendChild(charDesc);
+
+    // Create submit form section!
+    const formSection = document.getElementById('submit-form');
+    const formHeader = document.createElement('h3');
+    const form = document.createElement('form');
+
+    formHeader.appendChild(document.createTextNode('Sign Up For Our Newsletter!'))
+
+    form.setAttribute('action', '');
+    form.setAttribute('method', 'get');
+    form.setAttribute('id', 'form');
+
+    const nameField = document.createElement('input');
+    nameField.setAttribute('type', 'text');
+    nameField.setAttribute('name', 'name');
+    nameField.setAttribute('id', 'name-field');
+    nameField.setAttribute('placeholder', 'Enter your name...');
+    const emailField = document.createElement('input');
+    emailField.setAttribute('type', 'text');
+    emailField.setAttribute('name', 'email');
+    emailField.setAttribute('id', 'email-field');
+    emailField.setAttribute('placeholder', 'Enter your email...');
+    const phoneField = document.createElement('input');
+    phoneField.setAttribute('type', 'text');
+    phoneField.setAttribute('name', 'phone');
+    phoneField.setAttribute('id', 'phone-num');
+    phoneField.setAttribute('placeholder', 'Enter your phone number...');
+
+    form.appendChild(document.createTextNode('Name: '));
+    form.appendChild(nameField);
+    form.appendChild(document.createElement('br'));
+    form.appendChild(document.createElement('br'));
+    form.appendChild(document.createTextNode('Email: '));
+    form.appendChild(emailField);
+    form.appendChild(document.createElement('br'));
+    form.appendChild(document.createElement('br'));
+    form.appendChild(document.createTextNode('Phone: '));
+    form.appendChild(phoneField);
+
+    formSection.appendChild(formHeader);
+    formSection.appendChild(form);
 };
 
 // fadeIn(element, end, delta) - As elements are being added onto the page, animate
