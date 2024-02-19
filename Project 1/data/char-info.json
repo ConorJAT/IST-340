@@ -63,7 +63,7 @@
                "Please select an option...", "null",
                "White", "ojer-taq",
                "Blue", "ojer-pak",
-               "Black", "aclozotz",
+               "Black", "aclazotz",
                "Red", "ojer-axo",
                "Green", "ojer-kas"],
 
@@ -82,5 +82,257 @@
         "homeplane": "Kaladesh",
         "images": ["./images/chandra-1.png", "./images/chandra-2.png", "./images/chandra-3.png"],
         "img-alt": ["Image of Chandra, Torch of Defiance card.", "Image of Chandra, Bold Pyromancer card.", "Image of Chandra, Beacon's Hope card."]
+    },
+
+    "dovin": {
+        "name": "Dovin Baan",
+        "species": "Vedalken",
+        "colors": "White and Blue",
+        "homeplane": "Kaladesh",
+        "images": ["./images/dovin-1.png", "./images/dovin-2.png", "./images/dovin-3.png"],
+        "img-alt": ["Image of Dovin Baan card.", "Image of Dovin, Architect of Law card.", "Image of Dovin, Hand of Control card."]
+    },
+
+    "ral": {
+        "name": "Ral Zarek",
+        "species": "Human",
+        "colors": "Blue and Red",
+        "homeplane": "Ravnica",
+        "images": ["./images/ral-1.png", "./images/ral-2.png", "./images/ral-3.png"],
+        "img-alt": ["Image of Ral Zarek card.", "Image of Ral, Storm Conduit card.", "Image of Ral, Caller of Storms card."]
+    },
+
+    "vraska": {
+        "name": "Vraska",
+        "species": "Gorgon",
+        "colors": "Black and Green",
+        "homeplane": "Ravnica",
+        "images": ["./images/vraska-1.png", "./images/vraska-2.png", "./images/vraska-3.png"],
+        "img-alt": ["Image of Vraska the Unseen card.", "Image of Vraska, Golgari Queen card.", "Image of Vraska, Relic Seeker card."]
+    },
+
+    "jace": {
+        "name": "Jace Beleren",
+        "species": "Human",
+        "colors": "Blue",
+        "homeplane": "Ravnica",
+        "images": ["./images/jace-1.png", "./images/jace-2.png", "./images/jace-3.png"],
+        "img-alt": ["Image of Jace Beleren card.", "Image of Jace, the Mind Sculptor card.", "Image of Jace, Unraveler of Secrets card."]
+    },
+
+    "nissa": {
+        "name": "Nissa Revane",
+        "species": "Elf",
+        "colors": "Green",
+        "homeplane": "Zendikar",
+        "images": ["./images/nissa-1.png", "./images/nissa-2.png", "./images/nissa-3.png"],
+        "img-alt": ["Image of Nissa, Vital Force card.", "Image of Nissa, Voice of Zendikar card.", "Image of Nissa, Who Shakes the World card."]
+    },
+
+    "nahiri": {
+        "name": "Nahiri",
+        "species": "Kor",
+        "colors": "White and Red",
+        "homeplane": "Zendikar",
+        "images": ["./images/nahiri-1.png", "./images/nahiri-2.png", "./images/nahiri-3.png"],
+        "img-alt": ["Image of Nahiri, Heir of the Ancients card.", "Image of Nahiri, the Lithomancer card.", "Image of Nahiri, the Harbinger card."]
+    },
+
+    "kiora": {
+        "name": "Kiora",
+        "species": "Merfolk",
+        "colors": "Blue and Green",
+        "homeplane": "Zendikar",
+        "images": ["./images/kiora-1.png", "./images/kiora-2.png"],
+        "img-alt": ["Image of Kiora, the Crashing Wave card.", "Image of Kiora, Master of the Depths card."]
+    },
+
+    "atraxa": {
+        "name": "Atraxa",
+        "species": "Phyrexian Angel",
+        "colors": "Green, White, Blue and Black",
+        "homeplane": "New Phyrexia",
+        "images": ["./images/atraxa-1.png"],
+        "img-alt": ["Image of Atraxa, Praetors' Voice card."]
+    },
+
+    "avacyn": {
+        "name": "Avacyn",
+        "species": "Angel",
+        "colors": "White",
+        "homeplane": "Innistrad",
+        "images": ["./images/avacyn-1.png", "./images/avacyn-2.png"],
+        "img-alt": ["Image of Avacyn, Angel of Hope card.", "Image of Archangel Avacyn card."]
+    },
+
+    "aurelia": {
+        "name": "Aurelia",
+        "species": "Angel",
+        "colors": "Red and White",
+        "homeplane": "Ravnica",
+        "images": ["./images/aurelia-1.png", "./images/aurelia-2.png"],
+        "img-alt": ["Image of Aurelia, Exemplar of Justice card.", "Image of Aurelia, the Warleader card."]
+    },
+
+    "griselbrand": {
+        "name": "Griselbrand",
+        "species": "Demonlord",
+        "colors": "Black",
+        "homeplane": "Innistrad",
+        "images": ["./images/grisel-1.png"],
+        "img-alt": ["Image of Griselbrand card."]
+    },
+
+    "razaketh": {
+        "name": "Razaketh",
+        "species": "Demonlord",
+        "colors": "Black",
+        "homeplane": "Amonkhet",
+        "images": ["./images/razak-1.png"],
+        "img-alt": ["Image of Razaketh, the Foulblooded card."]
+    },
+
+    "belzenlok": {
+        "name": "Belzenlok",
+        "species": "Demonlord",
+        "colors": "Black",
+        "homeplane": "Dominaria",
+        "images": ["./images/belzen-1.png"],
+        "img-alt": ["Image of Demonlord Belzenlok card."]
+    },
+
+    "heliod": {
+        "name": "Heliod",
+        "species": "God",
+        "colors": "White",
+        "homeplane": "Theros",
+        "images": ["./images/heliod-1.png", "./images/heliod-2.png"],
+        "img-alt": ["Image of Heliod, God of the Sun card.", "Image of Heliod, Sun-Crowned card."]
+    },
+
+    "thassa": {
+        "name": "Thassa",
+        "species": "God",
+        "colors": "Blue",
+        "homeplane": "Theros",
+        "images": ["./images/thassa-1.png", "./images/thassa-2.png"],
+        "img-alt": ["Image of Thassa, God of the Sea card.", "Image of Thassa, Deep-Dwelling card."]
+    },
+
+    "erebos": {
+        "name": "Erebos",
+        "species": "God",
+        "colors": "Black",
+        "homeplane": "Theros",
+        "images": ["./images/erebos-1.png", "./images/erebos-2.png"],
+        "img-alt": ["Image of Erebos, God of the Dead card.", "Image of Erebos, Bleak-Hearted card."]
+    },
+
+    "purphoros": {
+        "name": "Purphoros",
+        "species": "God",
+        "colors": "Red",
+        "homeplane": "Theros",
+        "images": ["./images/purph-1.png", "./images/purph-2.png"],
+        "img-alt": ["Image of Perphoros, God of the Forge card.", "Image of Purphoros, Bronze-Blooded card."]
+    },
+
+    "nylea": {
+        "name": "Nylea",
+        "species": "God",
+        "colors": "Green",
+        "homeplane": "Theros",
+        "images": ["./images/nylea-1.png", "./images/nylea-2.png"],
+        "img-alt": ["Image of Nylea, God of the Hunt card.", "Image of Nylea, Keen-Eyed card."]
+    },
+
+    "ojer-taq": {
+        "name": "Ojer Taq",
+        "species": "God",
+        "colors": "White",
+        "homeplane": "Ixalan",
+        "images": ["./images/ojer-t-1.png"],
+        "img-alt": ["Image of Ojer Taq, Deepest Foundation card."]
+    },
+
+    "ojer-pak": {
+        "name": "Ojer Pakpatiq",
+        "species": "God",
+        "colors": "Blue",
+        "homeplane": "Ixalan",
+        "images": ["./images/ojer-p-1.png"],
+        "img-alt": ["Image of Ojer Pakpatiq, Deepest Epoch card."]
+    },
+
+    "aclazotz": {
+        "name": "Aclazotz",
+        "species": "God",
+        "colors": "Black",
+        "homeplane": "Ixalan",
+        "images": ["./images/aclazotz-1.png"],
+        "img-alt": ["Image of Aclazotz, Deepest Betrayal card."]
+    },
+
+    "ojer-axo": {
+        "name": "Ojer Axonil",
+        "species": "God",
+        "colors": "Red",
+        "homeplane": "Ixalan",
+        "images": ["./images/ojer-a-1.png"],
+        "img-alt": ["Image of Ojer Axonil, Deepest Might card."]
+    },
+
+    "ojer-kas": {
+        "name": "Ojer Kaslem",
+        "species": "God",
+        "colors": "Green",
+        "homeplane": "Ixalan",
+        "images": ["./images/ojer-k-1.png"],
+        "img-alt": ["Image of Ojer Kaslem, Deepest Growth card."]
+    },
+
+    "oketra": {
+        "name": "Oketra",
+        "species": "God",
+        "colors": "White",
+        "homeplane": "Amonkhet",
+        "images": ["./images/oketra-1.png", "./images/oketra-2.png"],
+        "img-alt": ["Image of Oketra the True card.", "Image of Trial of Solidarity card."]
+    },
+
+    "kefnet": {
+        "name": "Kefnet",
+        "species": "God",
+        "colors": "Blue",
+        "homeplane": "Amonkhet",
+        "images": ["./images/kefnet-1.png", "./images/kefnet-2.png"],
+        "img-alt": ["Image of Kefnet the Mindful card.", "Image of Trial of Knowledge card."]
+    },
+
+    "bontu": {
+        "name": "Bontu",
+        "species": "God",
+        "colors": "Black",
+        "homeplane": "Amonkhet",
+        "images": ["./images/bontu-1.png", "./images/bontu-2.png"],
+        "img-alt": ["Image of Bontu the Glorified card.", "Image of Trial of Ambition card."]
+    },
+
+    "hazoret": {
+        "name": "Hazoret",
+        "species": "God",
+        "colors": "Red",
+        "homeplane": "Amonkhet",
+        "images": ["./images/hazoret-1.png", "./images/hazoret-2.png"],
+        "img-alt": ["Image of Hazoret the Fervent card.", "Image of Trial of Zeal card."]
+    },
+
+    "rhonas": {
+        "name": "Rhonas",
+        "species": "God",
+        "colors": "Green",
+        "homeplane": "Amonkhet",
+        "images": ["./images/rhonas-1.png", "./images/rhonas-2.png"],
+        "img-alt": ["Image of Oketra the True card.", "Image of Trial of Strength card."]
     }
 }
