@@ -54,7 +54,6 @@ const createNode = (array, jsonObj) => {
 
         // 5b.) If the node is an end node, build the end node and form.
         } else if (selectElement.getAttribute('end-node') === 'true') {
-            console.log("Creating end node.")
             createEndNode(jsonObj[selectElement.value]);
             return;
 
@@ -94,8 +93,8 @@ const createEndNode = (character) => {
         const prevBtn = document.createElement('button');
         nextBtn.setAttribute('id', 'next-btn');
         prevBtn.setAttribute('id', 'prev-btn');
-        nextBtn.appendChild(document.createTextNode('Next'));
-        prevBtn.appendChild(document.createTextNode('Prev'));
+        nextBtn.appendChild(document.createTextNode('>'));
+        prevBtn.appendChild(document.createTextNode('<'));
 
         nextBtn.addEventListener('click', () => { changeImg(character.images, 1); });
         prevBtn.addEventListener('click', () => { changeImg(character.images, -1); });
