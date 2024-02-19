@@ -1,3 +1,5 @@
+let currentImgIndex;
+
 // init() - Sets up web app upon loading/reloading.
 const init = () => {
     getData().then( dataObj => {
@@ -75,13 +77,34 @@ const createNode = (array, jsonObj) => {
 const createEndNode = (character) => {
     // Create content section!
     const charContent = document.getElementById('char-content');
+    const charImgHolder = document.createElement('div');
     const charImg = document.createElement('img');
     const charDesc = document.createElement('div');
 
+    charImgHolder.setAttribute('id', 'char-img-holder');
+
+    currentImgIndex = 0;
     charImg.setAttribute('src', character['images'][0]);
     charImg.setAttribute('alt', character['img-alt'][0]);
     charImg.setAttribute('id', 'char-img');
-    charContent.appendChild(charImg);
+    charImgHolder.appendChild(charImg);
+
+    if (character.images.length > 1) {
+        const nextBtn = document.createElement('button');
+        const prevBtn = document.createElement('button');
+        nextBtn.setAttribute('id', 'next-btn');
+        prevBtn.setAttribute('id', 'prev-btn');
+        nextBtn.appendChild(document.createTextNode('Next'));
+        prevBtn.appendChild(document.createTextNode('Prev'));
+
+        nextBtn.addEventListener('click', () => { changeImg(character.images, 1); });
+        prevBtn.addEventListener('click', () => { changeImg(character.images, -1); });
+
+        charImgHolder.appendChild(nextBtn);
+        charImgHolder.appendChild(prevBtn);
+    }
+
+    charContent.appendChild(charImgHolder);
 
 
     const charName = document.createElement('h3');
@@ -181,6 +204,21 @@ const removeContent = () => {
         form.removeChild(formChildren[i]);
     }
 
+}
+
+const changeImg = (imgArray, changeBy) => {
+    const img = document.getElementById('char-img');
+
+    if ((currentImgIndex + changeBy) >= imgArray.length){
+        img.setAttribute('src', imgArray[0]);
+        currentImgIndex = 0;
+    } else if ((currentImgIndex + changeBy) < 0) {
+        img.setAttribute('src', imgArray[imgArray.length - 1]);
+        currentImgIndex = imgArray.length - 1;
+    } else {
+        img.setAttribute('src', imgArray[currentImgIndex + changeBy])
+        currentImgIndex = currentImgIndex + changeBy;
+    }
 }
 
 init();
