@@ -22,12 +22,12 @@ const createNode = (array, jsonObj) => {
     // 1.) Get superior div container (holds all select divs).
     let content = document.getElementById('questions');
 
-    // 2.) Create new child div and select elements.
+    // 2.) Create new child div, h3 and select elements.
     let divElement = document.createElement('div');
     let h3Element = document.createElement('h3');
     let selectElement = document.createElement('select');
 
-    // 3.) Set class and 'end-node' attributes.
+    // 3.) Set class, text node and 'end-node' attributes.
     divElement.setAttribute('class', 'container');
     divElement.style.opacity = '0';
     h3Element.appendChild(document.createTextNode(array[0]))
@@ -44,20 +44,21 @@ const createNode = (array, jsonObj) => {
 
     // 5.) Add an event listener onto the select element for any changes in value.
     selectElement.addEventListener('change', () => {
+        // 5a.) If there is any character content displayed, remove it.
         removeContent();
         let siblingElement = selectElement.parentNode.nextElementSibling;
 
-        // 5a.) If the value is null, remove any preceding child nodes and don't build anything.
+        // 5b.) If the value is null, remove any preceding child nodes and don't build anything.
         if (selectElement.value === 'null'){
             if (siblingElement) { removeSiblings(siblingElement); }
             return;
 
-        // 5b.) If the node is an end node, build the end node and form.
+        // 5c.) If the node is an end node, build the end node and form.
         } else if (selectElement.getAttribute('end-node') === 'true') {
             createEndNode(jsonObj[selectElement.value]);
             return;
 
-        // 5c.) If not an end node, remove any preceding child nodes and build another standard node.
+        // 5d.) If not an end node, remove any preceding child nodes and build another standard node.
         } else {
             if (siblingElement) { removeSiblings(siblingElement); }
             createNode(jsonObj[selectElement.value], jsonObj);
@@ -73,68 +74,88 @@ const createNode = (array, jsonObj) => {
     requestAnimationFrame(() => { fadeIn(divElement, 1, .02); });
 };
 
+// createEndNode(character) - Dynamically creates the character info display and end user form.
+// character - JSON object holding all necessary character information and images.
 const createEndNode = (character) => {
-    // Create content section!
+    // --- Create content section! ---
+    // 1.) Create all necessary base elements.
     const charContent = document.getElementById('char-content');
     const charImgHolder = document.createElement('div');
     const charImg = document.createElement('img');
     const charDesc = document.createElement('div');
 
+    // 2.) Set ID for image container div.
     charImgHolder.setAttribute('id', 'char-img-holder');
 
+    // 3.) Build the img HTML element. Use the first image as default, always.
     currentImgIndex = 0;
     charImg.setAttribute('src', character['images'][0]);
     charImg.setAttribute('alt', character['img-alt'][0]);
     charImg.setAttribute('id', 'char-img');
     charImgHolder.appendChild(charImg);
 
+    // 4.) If a character image array contains more than 1, build buttons to swap between images.
     if (character.images.length > 1) {
+        // 4a.) Create button elements.
         const nextBtn = document.createElement('button');
         const prevBtn = document.createElement('button');
+
+        // 4b.) Build button elements.
         nextBtn.setAttribute('id', 'next-btn');
         prevBtn.setAttribute('id', 'prev-btn');
         nextBtn.appendChild(document.createTextNode('>'));
         prevBtn.appendChild(document.createTextNode('<'));
 
+        // 4c.) Add event listeners to both of the buttons whenever they're clicked.
         nextBtn.addEventListener('click', () => { changeImg(character.images, 1); });
         prevBtn.addEventListener('click', () => { changeImg(character.images, -1); });
 
+        // 4d.) Add buttons to the image container div.
         charImgHolder.appendChild(nextBtn);
         charImgHolder.appendChild(prevBtn);
     }
 
+    // 5.) Add image container to the content section.
     charContent.appendChild(charImgHolder);
 
-
+    // 6.) Create new text elements to hold character text info.
     const charName = document.createElement('h3');
     const charSpecies = document.createElement('p');
     const charColor = document.createElement('p');
     const charHome = document.createElement('p');
 
+    // 7.) Transfer data from JSON object over into elements as text nodes.
     charName.appendChild(document.createTextNode(`Your MtG Character is: ${character['name']}`));
     charSpecies.appendChild(document.createTextNode(`Species: ${character['species']}`));
     charColor.appendChild(document.createTextNode(`Color Identity: ${character['colors']}`));
     charHome.appendChild(document.createTextNode(`Home Plane: ${character['homeplane']}`));
 
+    // 8.) Add text elements to character info container.
     charDesc.appendChild(charName);
     charDesc.appendChild(charSpecies);
     charDesc.appendChild(charColor);
     charDesc.appendChild(charHome);
 
+    // 9.) Add text container to the content section.
     charDesc.setAttribute('id', 'char-desc');
     charContent.appendChild(charDesc);
 
-    // Create submit form section!
+
+    // --- Create submit form section! ---
+    // 1.) Create new elements that will buld the form section of the web app.
     const formSection = document.getElementById('submit-form');
     const formHeader = document.createElement('h3');
     const form = document.createElement('form');
 
+    // 2.) Add text node to the form header.
     formHeader.appendChild(document.createTextNode('Sign Up For Our Newsletter!'))
 
+    // 3.) Apply necessary attributes to the form element.
     form.setAttribute('action', '');
     form.setAttribute('method', 'get');
     form.setAttribute('id', 'form');
 
+    // 4.) Create and build each input element to be placed into form.
     const nameField = document.createElement('input');
     nameField.setAttribute('type', 'text');
     nameField.setAttribute('name', 'name');
@@ -151,6 +172,7 @@ const createEndNode = (character) => {
     phoneField.setAttribute('id', 'phone-num');
     phoneField.setAttribute('placeholder', 'Enter your phone number...');
 
+    // 5.) Append all input elements, in addition to text nodes and line breaks into the form.
     form.appendChild(document.createTextNode('Name: '));
     form.appendChild(nameField);
     form.appendChild(document.createElement('br'));
@@ -162,6 +184,7 @@ const createEndNode = (character) => {
     form.appendChild(document.createTextNode('Phone: '));
     form.appendChild(phoneField);
 
+    // 6.) Append the form header and form itself into the form section of the page.
     formSection.appendChild(formHeader);
     formSection.appendChild(form);
 };
@@ -190,6 +213,7 @@ const removeSiblings = (element) => {
     document.getElementById('questions').removeChild(element);
 };
 
+// removeContent() - Removes all content currently displayed, as well as the form.
 const removeContent = () => {
     const content = document.getElementById('char-content');
     const contentChildren = content.childNodes;
@@ -205,19 +229,27 @@ const removeContent = () => {
 
 }
 
+// changeImg(imgArray, changeBy) - Changes the src of the character image to another using
+//                                 a passed in array of image addresses.
+// imgArray - Array holding the addresses of various images for a particular character.
+// changeBy - Value to increment or decrement by in the array.
 const changeImg = (imgArray, changeBy) => {
     const img = document.getElementById('char-img');
 
+    // If the increment leads the value being to high, set to index 0.
     if ((currentImgIndex + changeBy) >= imgArray.length){
-        img.setAttribute('src', imgArray[0]);
         currentImgIndex = 0;
+
+    // If the decrement leads the value being too low, set the index to the length - 1.
     } else if ((currentImgIndex + changeBy) < 0) {
-        img.setAttribute('src', imgArray[imgArray.length - 1]);
         currentImgIndex = imgArray.length - 1;
+
+    // Else, perform the operation normally.
     } else {
-        img.setAttribute('src', imgArray[currentImgIndex + changeBy])
         currentImgIndex = currentImgIndex + changeBy;
     }
+
+    img.setAttribute('src', imgArray[currentImgIndex])
 }
 
 init();
