@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Storage Example</title>
+	<script type="text/javascript" src="cookies.js"></script>
+	<script type="text/javascript">
+		////////////////////////////Careful - does not work on file:// (MUST upload to gibson)
+		//////For the project, do something that fits into what you are building - if you do this, you will get a "0" for storage
+		//localStorage & cookies
+
+		const changebg = (color) => {
+			// Does browser understand localStorage?
+			if ( window.localStorage ){
+				// Do local storage.
+				// Argument sent in?
+				if (color) {
+					localStorage.setItem('ctr9664-color', color);
+				}
+
+				// Is there something in storage for us to retrieve?
+				if ( localStorage.getItem('ctr9664-color') ){
+					document.body.style.background = localStorage.getItem('ctr9664-color');
+				}
+
+				console.log('localStorage used!')
+			} else {
+				// Use cookies.
+				console.log('Cookies used!')
+			}
+		};
+
+		const clearbg = () => {
+			// Remove the localStorage.
+			localStorage.removeItem('ctr9664-color');
+
+			// Clear the background color.
+			document.body.style.background = '';
+		};
+
+		if(GetCookie('user-id') == null){
+			// First time visiting.
+			let name = prompt('Welcome! First time here?');
+			document.write(`<h2>Welcome, ${name}!</h2>`);
+
+			// Write the cookie.
+			SetCookie('user-id', name);
+			SetCookie('user-visits', 1);
+		} else {
+			document.write(`<h3>Welcome back, ${GetCookie('user-id')}!</h3>`);
+			document.write(`<p>You have been here ${GetCookie('user-visits')} time(s)!</p>`);
+
+			// Add to the visit count.
+			SetCookie('user-visits', parseInt(GetCookie('user-visits')) + 1);
+		}
+
+	</script>
+</head>
+<body onload="changebg()">
+<div id="output"> </div>
+<div style="position:absolute;right:10px;bottom:10px;background:#c9c;">
+	Change your style. <span style="cursor:pointer;" onclick="changebg('red');">Red</span> | 
+	<span style="cursor:pointer;" onclick="changebg('green');">Green</span> | 
+	<span style="cursor:pointer;" onclick="clearbg()">Clear</span>
+</div>
+</body>
+</html>
