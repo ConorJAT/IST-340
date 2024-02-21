@@ -171,6 +171,13 @@ const createEndNode = (character) => {
     phoneField.setAttribute('name', 'phone');
     phoneField.setAttribute('id', 'phone-num');
     phoneField.setAttribute('placeholder', 'Enter your phone number...');
+    const submitBtn = document.createElement('input');
+    submitBtn.setAttribute('type', 'submit');
+    phoneField.setAttribute('id', 'submit-btn');
+    submitBtn.setAttribute('value', 'Sign Up!');
+
+    form.setAttribute('onsubmit', 'return formErrorCheck()')
+    //form.addEventListener('submit', 'return formErrorCheck()');
 
     // 5.) Append all input elements, in addition to text nodes and line breaks into the form.
     form.appendChild(document.createTextNode('Name: '));
@@ -183,6 +190,9 @@ const createEndNode = (character) => {
     form.appendChild(document.createElement('br'));
     form.appendChild(document.createTextNode('Phone: '));
     form.appendChild(phoneField);
+    form.appendChild(document.createElement('br'));
+    form.appendChild(document.createElement('br'));
+    form.appendChild(submitBtn);
 
     // 6.) Append the form header and form itself into the form section of the page.
     formSection.appendChild(formHeader);
@@ -251,5 +261,43 @@ const changeImg = (imgArray, changeBy) => {
 
     img.setAttribute('src', imgArray[currentImgIndex])
 }
+
+
+const formErrorCheck = () => {
+    const nameField = document.getElementById('name-field');   
+    const emailField = document.getElementById('email-field');   
+    const phoneField = document.getElementById('phone-field');   
+    let emptyFields = [];
+    let ret = true;
+
+    if(nameField.value == '') {
+        nameField.style.backgroundColor = 'pink';
+        emptyFields.push('Name');
+        ret = false;
+    }
+
+    if(emailField.value == '') {
+        emailField.style.backgroundColor = 'pink';
+        emptyFields.push('Email');
+        ret = false;
+    }
+
+    if(phoneField.value == '') {
+        phoneField.style.backgroundColor = 'pink';
+        emptyFields.push('Phone Number');
+        ret = false;
+    }
+
+    if (!ret) {
+        let alertString = 'Error! The following fields require completion:\n';
+        {
+            if (i == emptyFields.length - 1) { alertString += `${emptyFields[i]}`;}
+            else { alertString += `${emptyFields[i]}\n`;}
+        }
+        alert(alertString);
+    }
+
+    return ret;
+};
 
 init();
