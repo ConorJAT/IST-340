@@ -151,7 +151,7 @@ const createEndNode = (character) => {
     formHeader.appendChild(document.createTextNode('Sign Up For Our Newsletter!'))
 
     // 3.) Apply necessary attributes to the form element.
-    form.setAttribute('action', '');
+    form.setAttribute('action', '#');
     form.setAttribute('method', 'get');
     form.setAttribute('id', 'form');
 
@@ -160,6 +160,7 @@ const createEndNode = (character) => {
     nameField.setAttribute('type', 'text');
     nameField.setAttribute('name', 'name');
     nameField.setAttribute('id', 'name-field');
+    //nameField.setAttribute('required', 'true');
     nameField.setAttribute('placeholder', 'Enter your name...');
     const emailField = document.createElement('input');
     emailField.setAttribute('type', 'text');
@@ -173,11 +174,12 @@ const createEndNode = (character) => {
     phoneField.setAttribute('placeholder', 'Enter your phone number...');
     const submitBtn = document.createElement('input');
     submitBtn.setAttribute('type', 'submit');
-    phoneField.setAttribute('id', 'submit-btn');
+    submitBtn.setAttribute('id', 'submit-btn');
     submitBtn.setAttribute('value', 'Sign Up!');
 
-    form.setAttribute('onsubmit', 'return formErrorCheck()')
-    //form.addEventListener('submit', 'return formErrorCheck()');
+    //form.setAttribute('onsubmit', () => { return formErrorCheck(); });
+    //form.addEventListener('submit', () => { return formErrorCheck(); });
+    form.onsubmit = () => { return formErrorCheck(); }
 
     // 5.) Append all input elements, in addition to text nodes and line breaks into the form.
     form.appendChild(document.createTextNode('Name: '));
@@ -266,23 +268,23 @@ const changeImg = (imgArray, changeBy) => {
 const formErrorCheck = () => {
     const nameField = document.getElementById('name-field');   
     const emailField = document.getElementById('email-field');   
-    const phoneField = document.getElementById('phone-field');   
+    const phoneField = document.getElementById('phone-num');   
     let emptyFields = [];
     let ret = true;
 
-    if(nameField.value == '') {
+    if(nameField.value === '') {
         nameField.style.backgroundColor = 'pink';
         emptyFields.push('Name');
         ret = false;
     }
 
-    if(emailField.value == '') {
+    if(emailField.value === '') {
         emailField.style.backgroundColor = 'pink';
         emptyFields.push('Email');
         ret = false;
     }
 
-    if(phoneField.value == '') {
+    if(phoneField.value === '') {
         phoneField.style.backgroundColor = 'pink';
         emptyFields.push('Phone Number');
         ret = false;
@@ -290,9 +292,9 @@ const formErrorCheck = () => {
 
     if (!ret) {
         let alertString = 'Error! The following fields require completion:\n';
-        {
-            if (i == emptyFields.length - 1) { alertString += `${emptyFields[i]}`;}
-            else { alertString += `${emptyFields[i]}\n`;}
+        for(let i = 0; i < emptyFields.length; i++){
+            if (i == emptyFields.length - 1) { alertString += ` - ${emptyFields[i]}`;}
+            else { alertString += ` - ${emptyFields[i]}\n`;}
         }
         alert(alertString);
     }
