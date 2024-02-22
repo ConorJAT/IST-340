@@ -1,3 +1,5 @@
+"use strict";
+
 let currentImgIndex;
 
 // init() - Sets up web app upon loading/reloading.
@@ -177,9 +179,9 @@ const createEndNode = (character) => {
     submitBtn.setAttribute('id', 'submit-btn');
     submitBtn.setAttribute('value', 'Sign Up!');
 
-    //form.setAttribute('onsubmit', () => { return formErrorCheck(); });
+    form.setAttribute('onsubmit', 'return formErrorCheck()');
     //form.addEventListener('submit', () => { return formErrorCheck(); });
-    form.onsubmit = () => { return formErrorCheck(); }
+    //form.onsubmit = () => { return formErrorCheck(); }
 
     // 5.) Append all input elements, in addition to text nodes and line breaks into the form.
     form.appendChild(document.createTextNode('Name: '));
@@ -302,4 +304,4 @@ const formErrorCheck = () => {
     return ret;
 };
 
-init();
+window.onload = init;
