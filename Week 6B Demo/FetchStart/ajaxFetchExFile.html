@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>.:AJAX - fetch() &amp; XHRHttpRequest:.</title>
+<script>
+///////////////////////////////////////////////////////////////////
+//XHRHttpRequest Object
+//first, we create a XMLHttpRequest Object...
+let xhrRequest= new XMLHttpRequest(); //hold our request object
+
+if (!xhrRequest) {
+  alert('Issues - Cannot create an XMLHTTP instance');
+}
+
+//If we got the information, do something with it!
+function handleHttpResponse() {
+	//alert(http.readyState);
+	//first, is my 'object' complete (done getting info from server?)
+	if (xhrRequest.readyState == 4) {
+		//if I got something...
+		//alert(http.responseText);
+		if (xhrRequest.status==200) {
+			// Use the XML DOM to unpack the data 
+			var xmlDocument = xhrRequest.responseXML; 
+
+			//*********************************************************************
+			//process the return content!
+			for(i=0, len=xmlDocument.getElementsByTagName('who').length; i<len; i++){
+				let div = document.createElement('div');
+				div.appendChild(document.createTextNode(xmlDocument.getElementsByTagName('who').item(i).firstChild.data));
+				document.getElementById('xhrContainer').appendChild(div);
+			}
+			//*********************************************************************
+		}
+	}
+}
+function doXHR() {
+    xhrRequest.onreadystatechange = handleHttpResponse;
+    xhrRequest.open('GET', 'data.xml');
+    xhrRequest.send();
+  }
+///////////////////////////////////////////////////////////////////
+//fetch()
+//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+
+//await vs then()
+//https://dev.to/paperbyte/async-await-vs-fetchthen-20oe
+
+
+///////////////////////////////////////////////////////////////////
+</script>
+<style type="text/css">
+	#xhrContainer, #fetchContainer {
+		overflow:auto; 
+		width:200px; 
+		height:100px; 
+		border:black 10px solid;
+		background:#ccc;
+		padding:10px;
+	}
+</style>
+</head>
+<body onload="doXHR();">
+	XHR
+	<div id="xhrContainer">
+		
+	</div>
+	<hr/>
+	Fetch
+	<div id="fetchContainer">
+
+	</div>
+</body>
+</html>
