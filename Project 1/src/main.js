@@ -278,18 +278,24 @@ const formErrorCheck = () => {
         nameField.style.backgroundColor = 'pink';
         emptyFields.push('Name');
         ret = false;
+    } else {
+        nameField.style.backgroundColor = 'white';
     }
 
     if(emailField.value === '') {
         emailField.style.backgroundColor = 'pink';
         emptyFields.push('Email');
         ret = false;
+    } else {
+        emailField.style.backgroundColor = 'white';
     }
 
     if(phoneField.value === '') {
         phoneField.style.backgroundColor = 'pink';
         emptyFields.push('Phone Number');
         ret = false;
+    } else {
+        phoneField.style.backgroundColor = 'white';
     }
 
     if (!ret) {
