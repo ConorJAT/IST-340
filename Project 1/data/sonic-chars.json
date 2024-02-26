@@ -2,5 +2,177 @@
     "base": ["Male or Female?", "false",
              "Please select an option...", "null",
              "Male", "male",
-             "Female", "female"]
+             "Female", "female"],
+
+    "male": ["Introduced in 2D/3D?", "false",
+             "Please select an option...", "null",
+             "2D Original", "2d",
+             "3D Original", "3d"],
+
+    "2d": ["Species?", "true",
+           "Please select an option...", "null",
+           "Hedgehog", "sonic",
+           "Fox", "tails",
+           "Echidna", "knuckles",
+           "Human", "eggman"],
+    
+    "3d": ["Fur/Body Color?", "true",
+           "Please select an option...", "null",
+           "Black", "shadow",
+           "White", "silver",
+           "Green", "vector",
+           "Purple", "big"],
+           
+    "female": ["Playable Character?", "false",
+               "Please select an option...", "null",
+               "Playable", "play",
+               "Non-Playable", "npc"],
+
+    "play": ["Species?", "true",
+             "Please select an option...", "null",
+             "Hedgehog", "amy",
+             "Bat", "rouge",
+             "Rabbit", "cream",
+             "Cat", "blaze"],
+
+    "npc": ["Game/Show present in?", "true",
+            "Please select an option...", "null",
+            "Sonic Adventure I", "tikal",
+            "Sonic Boom", "sticks",
+            "Sonic 2006", "elise"],
+
+    "sonic": {
+        "name": "Sonic",
+        "species": "Hedgehog",
+        "colors": "Blue",
+        "homeplane": "Green Hill",
+        "images": ["./images/sonic-imgs/male/sonic-1.webp"],
+        "img-alt": ["Image of Sonic the Hedgehog."]
+    },
+
+    "tails": {
+        "name": "Tails",
+        "species": "Fox",
+        "colors": "Orange",
+        "homeplane": "Green Hill",
+        "images": ["./images/sonic-imgs/male/tails-1.webp"],
+        "img-alt": ["Image of Miles 'Tails' Prower."]
+    },
+
+    "knuckles": {
+        "name": "Knuckles",
+        "species": "Echidna",
+        "colors": "Red",
+        "homeplane": "Angel Island",
+        "images": ["./images/sonic-imgs/male/knuckles-1.webp"],
+        "img-alt": ["Image of Knuckles the Echidna."]
+    },
+
+    "eggman": {
+        "name": "Dr. Eggman",
+        "species": "Human",
+        "colors": "(Wears) Red",
+        "homeplane": "Unknown",
+        "images": ["./images/sonic-imgs/male/eggman-1.webp"],
+        "img-alt": ["Image of Dr. Robotnik (aka Eggman)."]
+    },
+
+    "shadow": {
+        "name": "Shadow",
+        "species": "Hedgehog",
+        "colors": "Black",
+        "homeplane": "Unknown",
+        "images": ["./images/sonic-imgs/male/shadow-1.webp"],
+        "img-alt": ["Image of Shadow the Hedgehog."]
+    },
+
+    "silver": {
+        "name": "Silver",
+        "species": "Hedgehog",
+        "colors": "White",
+        "homeplane": "Crisis City",
+        "images": ["./images/sonic-imgs/male/silver-1.webp"],
+        "img-alt": ["Image of Silver the Hedgehog."]
+    },
+
+    "vector": {
+        "name": "Vector",
+        "species": "Crocodile",
+        "colors": "Green",
+        "homeplane": "Chaotix Detective Crew",
+        "images": ["./images/sonic-imgs/male/vector-1.webp"],
+        "img-alt": ["Image of Vector the Crocodile."]
+    },
+
+    "big": {
+        "name": "Big",
+        "species": "Cat",
+        "colors": "Violet",
+        "homeplane": "Unknown",
+        "images": ["./images/sonic-imgs/male/big-1.webp"],
+        "img-alt": ["Image of Big the Cat."]
+    },
+
+    "amy": {
+        "name": "Amy",
+        "species": "Hedgehog",
+        "colors": "Pink",
+        "homeplane": "Collision Chaos",
+        "images": ["./images/sonic-imgs/female/amy-1.webp"],
+        "img-alt": ["Image of Amy Rose."]
+    },
+
+    "rouge": {
+        "name": "Rouge",
+        "species": "Bat",
+        "colors": "White",
+        "homeplane": "Unknown",
+        "images": ["./images/sonic-imgs/female/rouge-1.webp"],
+        "img-alt": ["Image of Rouge the Bat."]
+    },
+
+    "cream": {
+        "name": "Cream",
+        "species": "Rabbit",
+        "colors": "Tan and Orange",
+        "homeplane": "Chao Garden",
+        "images": ["./images/sonic-imgs/female/cream-1.webp"],
+        "img-alt": ["Image of Cream the Rabbit."]
+    },
+
+    "blaze": {
+        "name": "Blaze",
+        "species": "Cat",
+        "colors": "Lavendar",
+        "homeplane": "Unknown",
+        "images": ["./images/sonic-imgs/female/blaze-1.webp"],
+        "img-alt": ["Image of Blaze the Cat."]
+    },
+
+    "tikal": {
+        "name": "Tikal",
+        "species": "Echidna",
+        "colors": "Orange",
+        "homeplane": "Angel Island",
+        "images": ["./images/sonic-imgs/female/tikal-1.webp"],
+        "img-alt": ["Image of Tikal the Echidna."]
+    },
+
+    "sticks": {
+        "name": "Sticks",
+        "species": "Badger",
+        "colors": "Brown",
+        "homeplane": "Seaside Island",
+        "images": ["./images/sonic-imgs/female/sticks-1.webp"],
+        "img-alt": ["Image of Sticks the Badger."]
+    },
+
+    "elise": {
+        "name": "Princess Elise",
+        "species": "Hedgehog",
+        "colors": "(Wears) White",
+        "homeplane": "Soleanna",
+        "images": ["./images/sonic-imgs/female/elise-1.webp"],
+        "img-alt": ["Image of Princess Elise of Soleanna."]
+    }
 }
