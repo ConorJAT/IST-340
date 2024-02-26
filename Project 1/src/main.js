@@ -11,7 +11,7 @@ const init = () => {
 
 // getData() - Asynchronous; Retrieves external data from outside file.
 const getData = async () => {
-    const response = await fetch('./data/sonic-chars.json');
+    const response = await fetch('./data/mtg-chars.json');
     const dataObj = await response.json();
     return dataObj;
 };
