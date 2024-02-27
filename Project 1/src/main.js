@@ -182,6 +182,9 @@ const createEndNode = (character) => {
     charDesc.setAttribute('id', 'char-desc');
     charContent.appendChild(charDesc);
 
+    // 10.) Animate the character content fading into place.
+    charContent.style.opacity = 0;
+    requestAnimationFrame(() => { fadeIn(charContent, 1, .02); })
 
     // --- Create submit form section! ---
     // 1.) Create new elements that will buld the form section of the web app.
