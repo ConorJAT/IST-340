@@ -162,7 +162,6 @@ const createEndNode = (character) => {
     nameField.setAttribute('type', 'text');
     nameField.setAttribute('name', 'name');
     nameField.setAttribute('id', 'name-field');
-    //nameField.setAttribute('required', 'true');
     nameField.setAttribute('placeholder', 'Enter your name...');
     const emailField = document.createElement('input');
     emailField.setAttribute('type', 'text');
@@ -179,11 +178,27 @@ const createEndNode = (character) => {
     submitBtn.setAttribute('id', 'submit-btn');
     submitBtn.setAttribute('value', 'Sign Up!');
 
-    form.setAttribute('onsubmit', 'return formErrorCheck()');
-    //form.addEventListener('submit', () => { return formErrorCheck(); });
-    //form.onsubmit = () => { return formErrorCheck(); }
+    // 5.) Check to see if there's any localStorage data that can be loaded in.
+    const storageMsg = document.createElement('p');
 
-    // 5.) Append all input elements, in addition to text nodes and line breaks into the form.
+    if (localStorage.getItem('ctr9664-form-data')) {
+        const prevFormData = localStorage.getItem('ctr9664-form-data').split(',');
+       
+        nameField.setAttribute('value', prevFormData[0]);
+        emailField.setAttribute('value', prevFormData[1]);
+        phoneField.setAttribute('value', prevFormData[2]);
+
+        storageMsg.setAttribute('id', 'storage-msg');
+        storageMsg.appendChild(document.createTextNode(prevFormData[3]));
+    }
+
+    form.setAttribute('onsubmit', 'return formErrorCheck()');
+
+    // 6.) Append all input elements, in addition to text nodes and line breaks into the form.
+    if (localStorage.getItem('ctr9664-form-data')) {
+        form.appendChild(storageMsg);
+    }
+    
     form.appendChild(document.createTextNode('Name: '));
     form.appendChild(nameField);
     form.appendChild(document.createElement('br'));
@@ -198,7 +213,7 @@ const createEndNode = (character) => {
     form.appendChild(document.createElement('br'));
     form.appendChild(submitBtn);
 
-    // 6.) Append the form header and form itself into the form section of the page.
+    // 7.) Append the form header and form itself into the form section of the page.
     formSection.appendChild(formHeader);
     formSection.appendChild(form);
 };
@@ -271,12 +286,10 @@ const formErrorCheck = () => {
     const nameField = document.getElementById('name-field');   
     const emailField = document.getElementById('email-field');   
     const phoneField = document.getElementById('phone-num');   
-    let emptyFields = [];
     let ret = true;
 
     if(nameField.value === '') {
         nameField.style.backgroundColor = 'pink';
-        emptyFields.push('Name');
         ret = false;
     } else {
         nameField.style.backgroundColor = 'white';
@@ -284,7 +297,6 @@ const formErrorCheck = () => {
 
     if(emailField.value === '') {
         emailField.style.backgroundColor = 'pink';
-        emptyFields.push('Email');
         ret = false;
     } else {
         emailField.style.backgroundColor = 'white';
@@ -292,19 +304,21 @@ const formErrorCheck = () => {
 
     if(phoneField.value === '') {
         phoneField.style.backgroundColor = 'pink';
-        emptyFields.push('Phone Number');
         ret = false;
     } else {
         phoneField.style.backgroundColor = 'white';
     }
 
-    if (!ret) {
-        let alertString = 'Error! The following fields require completion:\n';
-        for(let i = 0; i < emptyFields.length; i++){
-            if (i == emptyFields.length - 1) { alertString += ` - ${emptyFields[i]}`;}
-            else { alertString += ` - ${emptyFields[i]}\n`;}
-        }
-        alert(alertString);
+    if (ret) {
+        const formData = [
+            nameField.value, 
+            emailField.value,
+            phoneField.value,
+            '(Form data loaded from last submission).'];
+        
+        localStorage.setItem('ctr9664-form-data', formData);
+
+        console.log('User form data saved!');
     }
 
     return ret;
