@@ -4,13 +4,44 @@ let currentImgIndex;
 
 // init() - Sets up web app upon loading/reloading.
 const init = () => {
-    getData().then( dataObj => {
-        createNode(dataObj['base'], dataObj);
-    });
+    // If a last search cookie exists, rebuild last saved search.
+    if(GetCookie('ctr9664-last-search') !== null) {
+        // 1.) Parse last saved data into array.
+        let pathway = GetCookie('ctr9664-last-search').split(',');
+
+        // 2.) Fetch data needed to rebuild page.
+        getData().then( dataObj => {
+            // 3.) Start by building the base node.
+            createNode(dataObj['base'], dataObj);
+
+            // 4.) For each term in the pathway...
+            for (let i = 0; i < pathway.length; i++) {
+                // 4a) Get the latest select element and set its value to the current pathway value.
+                let selects = document.getElementsByClassName('select-question');
+                selects[selects.length - 1].value = pathway[i];
+
+                // 4b.) If the latest select is not an end node, build the next regular node.
+                if (selects[selects.length - 1].getAttribute('end-node') !== 'true') { 
+                    createNode(dataObj[pathway[i]], dataObj); 
+
+                // 4c.) Else, build the content and form sections of the page.
+                } else {
+                    createEndNode(dataObj[pathway[i]])
+                }
+            }            
+        });
+
+    // If no cookie is present, just build the base node.
+    } else {
+        getData().then( dataObj => {
+            createNode(dataObj['base'], dataObj);
+        });
+    }
 };
 
 // getData() - Asynchronous; Retrieves external data from outside file.
 const getData = async () => {
+    // -- CHANGE DATA STRUCTURE HERE! --
     const response = await fetch('./data/mtg-chars.json');
     const dataObj = await response.json();
     return dataObj;
@@ -33,6 +64,7 @@ const createNode = (array, jsonObj) => {
     divElement.setAttribute('class', 'container');
     divElement.style.opacity = '0';
     h3Element.appendChild(document.createTextNode(array[0]))
+    selectElement.setAttribute('class', 'select-question');
     selectElement.setAttribute('end-node', array[1]);
 
     // 4.) Populate select element with option elements (data from current array).
@@ -58,6 +90,14 @@ const createNode = (array, jsonObj) => {
         // 5c.) If the node is an end node, build the end node and form.
         } else if (selectElement.getAttribute('end-node') === 'true') {
             createEndNode(jsonObj[selectElement.value]);
+
+            let pathway = [];
+            let responses = document.getElementsByClassName('select-question');
+
+            for (let response of responses) { pathway.push(response.value); }
+
+            console.log(pathway);
+            SetCookie('ctr9664-last-search', pathway);
             return;
 
         // 5d.) If not an end node, remove any preceding child nodes and build another standard node.
