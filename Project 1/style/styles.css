@@ -14,8 +14,6 @@
     min-width: 640px;
     max-width: 1210px;
     margin: 0 auto;
-
-    /* border: 2px solid black; */
 }
 
 header{
@@ -60,7 +58,7 @@ footer{
     padding: 20px;
 }
 
-/* -- OTHER STYLES -- */
+/* -- QUESTION CONTAINER STYLES -- */
 .container {
     width: 92%;
     height: 110px;
@@ -77,6 +75,7 @@ footer{
     justify-content: center;
 }
 
+/* -- CHARACTER CONTENT STYLES -- */
 #char-img-holder{
     position: relative;
     width: 90%;
@@ -118,6 +117,7 @@ footer{
     padding: 10px;
 }
 
+/* -- TEXT STYLES -- */
 h1, h3{
     font-family: "Anta", sans-serif;
 }
