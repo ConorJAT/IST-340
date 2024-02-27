@@ -367,11 +367,20 @@ const formErrorCheck = () => {
 };
 
 // Cookie Helper Code (implemented from localStorage/cookies in-class demo)
+function SetCookie (name,value,maxAge,path,domain,sameSite,secure) {
+    document.cookie = name + "=" + escape (value) +
+    ((maxAge) ? ";max-age=" + maxAge  : "") +
+    ((path) ? ";path=" + path  : "") +
+    ((domain) ? ";domain=" + domain : "") +
+    ((sameSite) ? ";samesite=" + sameSite : ";samesite=strict") +
+    ((secure) ? ";secure;" : ";");
+}
+
 function getCookieVal (offset) {
 	var endstr = document.cookie.indexOf (";", offset);
 	if (endstr == -1) { endstr = document.cookie.length; }
 	return unescape(document.cookie.substring(offset, endstr));
-	}
+}
 
 function GetCookie (name) {
 	var arg = name + "=";
@@ -382,12 +391,12 @@ function GetCookie (name) {
 		var j = i + alen;
 		if (document.cookie.substring(i, j) == arg) {
 			return getCookieVal (j);
-			}
+		}
 		i = document.cookie.indexOf(" ", i) + 1;
 		if (i == 0) break; 
-		}
-	return null;
 	}
+	return null;
+}
 
 function DeleteCookie (name,path,domain) {
 	if (GetCookie(name)) {
@@ -395,16 +404,7 @@ function DeleteCookie (name,path,domain) {
 		((path) ? "; path=" + path : "") +
 		((domain) ? "; domain=" + domain : "") +
 		"; expires=Thu, 01-Jan-70 00:00:01 GMT";
-		}
 	}
-
-function SetCookie (name,value,maxAge,path,domain,sameSite,secure) {
-  document.cookie = name + "=" + escape (value) +
-    ((maxAge) ? ";max-age=" + maxAge  : "") +
-    ((path) ? ";path=" + path  : "") +
-    ((domain) ? ";domain=" + domain : "") +
-    ((sameSite) ? ";samesite=" + sameSite : ";samesite=strict") +
-    ((secure) ? ";secure;" : ";");
 }
 
 window.onload = init;
