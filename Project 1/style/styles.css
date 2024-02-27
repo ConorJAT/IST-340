@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 /* -- GRID STYLES -- */
 #grid{
     display: grid;
@@ -8,12 +10,19 @@
         "questions content submit"
         "footer    footer  footer";
 
-    width: 90%;
+    width: 100%;
+    min-width: 640px;
+    max-width: 1210px;
     margin: 0 auto;
+
+    /* border: 2px solid black; */
 }
 
 header{
     grid-area: header;
+
+    background-color: rgb(226, 115, 36);
+    border: 2px solid black;
 
     text-align: center;
 }
@@ -44,6 +53,11 @@ header{
 
 footer{
     grid-area: footer;
+
+    background-color: rgb(226, 115, 36);
+    border: 2px solid black;
+
+    padding: 20px;
 }
 
 /* -- OTHER STYLES -- */
@@ -102,4 +116,13 @@ footer{
     max-width: 360px;
 
     padding: 10px;
+}
+
+h1, h3{
+    font-family: "Anta", sans-serif;
+}
+
+h2, form, p, select{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
 }
