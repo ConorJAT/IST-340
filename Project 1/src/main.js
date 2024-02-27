@@ -72,7 +72,7 @@ const createNode = (array, jsonObj) => {
     divElement.appendChild(selectElement);
     content.appendChild(divElement);
 
-    // 7.) Animate the elements sliding into place.
+    // 7.) Animate the elements fading into place.
     requestAnimationFrame(() => { fadeIn(divElement, 1, .02); });
 };
 
@@ -281,7 +281,9 @@ const changeImg = (imgArray, changeBy) => {
     img.setAttribute('src', imgArray[currentImgIndex])
 }
 
-
+// formErrorCheck() - Used for form validation. Should there be any unfilled inputs, the
+//                    respective background will turn pink and prevent the form from submitting.
+//                    Will also store form data to local storage once sufficient data is provided.
 const formErrorCheck = () => {
     const nameField = document.getElementById('name-field');   
     const emailField = document.getElementById('email-field');   
