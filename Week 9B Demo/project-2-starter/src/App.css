@@ -1,0 +1,42 @@
+/* Semantic UI screws with CSS. */
+body{
+  display: block !important;
+}
+
+.app{
+  text-align: center;
+  padding: 0 3vw 3vw;
+  background-color: #242424;
+}
+
+.sticky{
+  text-align: center;
+  position: sticky;
+  top: 0px;
+  margin: 0px;
+  background-color: #1b1c1d;
+  color: white;
+  padding: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.sticky>h1{
+  margin: 0px;
+}
+
+.about{
+  width: 85vw;
+  margin-left: 7vw;
+}
+
+.about>h2{
+  margin: 0px;
+}
+
+.abt-quote{
+  padding: 0 2em;
+  border: 3px solid gray;
+  border-radius: 10px;
+}
