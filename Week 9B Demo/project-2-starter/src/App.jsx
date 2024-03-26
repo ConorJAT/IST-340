@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 // import * as React from 'react';
 
 // Import components.
+import People from './components/People';
+import PeopleTabs from './components/PeopleTabs';
 
 // Import utils.
 import { getData } from './utils/getData';
@@ -54,6 +56,11 @@ const App = () => {
           </div>
         </div>
         <hr/>
+
+        {/* Put components here. */}
+        <People/>
+        <PeopleTabs/>
+
       </div>
     </>
   );
