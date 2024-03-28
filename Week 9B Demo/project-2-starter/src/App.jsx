@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 // import * as React from 'react';
 
 // Import components.
-import People from './components/People';
 import PeopleTabs from './components/PeopleTabs';
 
 // Import utils.
@@ -58,7 +57,6 @@ const App = () => {
         <hr/>
 
         {/* Put components here. */}
-        <People/>
         <PeopleTabs/>
 
       </div>
