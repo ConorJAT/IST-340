@@ -1,0 +1,20 @@
+.peopleList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.peopleList>*{
+    flex: 1 1 200px;
+}
+
+.peopleListItem {
+    min-height: 250px;
+    margin: 1em;
+    padding: 1em;
+    border: 3px solid #ddd;
+    border-radius: 15px;
+}
+
+.peopleListItem>img {
+    height: 180px;
+}
