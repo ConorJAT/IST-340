@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Import utils.
-import { getData } from './../utils/getData';
+import { getData } from '../../utils/getData';
 import DegreeGroup from './DegreeGroup';
 
 const DegreeAccords = () => {

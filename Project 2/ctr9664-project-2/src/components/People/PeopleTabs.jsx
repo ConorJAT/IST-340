@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TabPane, Tab } from 'semantic-ui-react';
 
 // Import utils.
-import { getData } from './../utils/getData';
+import { getData } from '../../utils/getData';
 
 // Import component.
 import PeopleGroup from './PeopleGroup';

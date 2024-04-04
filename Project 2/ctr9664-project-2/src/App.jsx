@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 // import * as React from 'react';
 
 // Import components.
-import PeopleTabs from './components/PeopleTabs';
-import DegreeAccords from './components/DegreesAccords';
-import Employment from './components/Employment';
+import PeopleTabs from './components/People/PeopleTabs';
+import DegreeAccords from './components/Degrees/DegreesAccords';
+import Employment from './components/Employment/Employment';
 
 // Import utils.
 import { getData } from './utils/getData';

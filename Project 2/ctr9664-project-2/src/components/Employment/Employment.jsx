@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { TabPane, Tab } from 'semantic-ui-react';
 
 // Import utils.
-import { getData } from '../utils/getData';
-import { formatTableData } from '../utils/formatTableData';
+import { getData } from '../../utils/getData';
+import { formatTableData } from '../../utils/formatTableData';
 
 import EmploymentTabs from './EmploymentTabs';
 
