@@ -34,6 +34,56 @@ const Employment = () => {
 
     return (
         <>
+            <h1>Employment Information</h1>
+            <h3>{dataObj.introduction.title}</h3>
+
+            <div>
+                {dataObj.introduction.content.map((section) => {
+                    return (
+                        <div>
+                            <h2>{section.title}</h2>
+                            <p>{section.description}</p>
+                        </div>
+                    );
+                })}
+            </div>
+
+            <h2>{dataObj.degreeStatistics.title}</h2>
+            <div>
+                {dataObj.degreeStatistics.statistics.map((stat) => {
+                    return (
+                        <div>
+                            <h3>{stat.value}</h3>
+                            <p>{stat.description}</p>
+                        </div>
+                    );
+                })}
+            </div>
+
+            <h2>{dataObj.employers.title}</h2>
+            <div>
+                {dataObj.employers.employerNames.map((name) => {
+                    return (
+                        // <div>
+                        //     <p>{name}</p>
+                        // </div>
+                        <span>{name}</span>
+                    );
+                })}
+            </div>
+
+            <h2>{dataObj.careers.title}</h2>
+            <div>
+                {dataObj.careers.careerNames.map((name) => {
+                    return (
+                        // <div>
+                        //     <p>{name}</p>
+                        // </div>
+                        <span>{name}</span>
+                    );
+                })}
+            </div>
+
             <EmploymentTabs baseObj={{formattedCoops, formattedEmployment}}/>
         </>
     );

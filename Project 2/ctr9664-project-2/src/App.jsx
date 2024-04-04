@@ -60,8 +60,11 @@ const App = () => {
 
         {/* Put components here. */}
         <PeopleTabs/>
+        <hr/>
         <DegreeAccords/>
+        <hr/>
         <Employment/>
+        <hr/>
 
       </div>
     </>
