@@ -16,7 +16,6 @@ const People = () => {
     React.useEffect( () => {
         // Page was rendered; time to get data.
         getData('people/').then( (json) => {
-            console.log(json);
             setDataObj(json);
             setLoaded(true);
         });

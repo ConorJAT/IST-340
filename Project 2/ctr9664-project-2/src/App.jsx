@@ -23,7 +23,6 @@ const App = () => {
   React.useEffect( () => {
     // Page was rendered; time to get data.
     getData('about/').then( (json) => {
-      console.log(json);
       setDataObj(json);
       setLoaded(true);
     });

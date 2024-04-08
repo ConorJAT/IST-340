@@ -13,7 +13,6 @@ const DegreeAccords = () => {
     React.useEffect( () => {
         // Page was rendered; time to get data.
         getData('degrees/').then( (json) => {
-            console.log(json);
             setDataObj(json);
             setLoaded(true);
         });
