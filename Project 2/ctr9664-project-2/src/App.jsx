@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import PeopleTabs from './components/People/PeopleTabs';
 import DegreeAccords from './components/Degrees/DegreesAccords';
 import Employment from './components/Employment/Employment';
+import Minors from './components/Minors/Minors';
 
 // Import utils.
 import { getData } from './utils/getData';
@@ -65,6 +66,7 @@ const App = () => {
         <hr/>
         <Employment/>
         <hr/>
+        <Minors/>
 
       </div>
     </>
