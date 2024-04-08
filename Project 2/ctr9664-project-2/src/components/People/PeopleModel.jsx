@@ -35,10 +35,27 @@ const PeopleModal = ({person}) => {
             {person.name}
           </Typography>
           <Typography variant="h6" component="h2">
-            {person.tagline}
+            {(person.tagline ? person.tagline : '')}
           </Typography>
-          
-          
+          <br/>
+          <Typography variant="h6" component="h2">
+            {(person.title ? `Title: ${person.title}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            {(person.office ? `Office: ${person.office}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            {(person.phone ? `Phone: ${person.phone}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            {(person.email ? `Email: ${person.email}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            {(person.twitter ? `Twitter: ${person.twitter}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            {(person.facebook ? `Facebook: ${person.facebook}` : '')}
+          </Typography>
         </Box>
       </Modal>
     </div>
