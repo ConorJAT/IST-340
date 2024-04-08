@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 // Import components.
 import PeopleTabs from './components/People/PeopleTabs';
-import DegreeAccords from './components/Degrees/DegreesAccords';
+import Degrees from './components/Degrees/Degrees';
 import Employment from './components/Employment/Employment';
 import Minors from './components/Minors/Minors';
 
@@ -61,7 +61,7 @@ const App = () => {
         {/* Put components here. */}
         <PeopleTabs/>
         <hr/>
-        <DegreeAccords/>
+        <Degrees/>
         <hr/>
         <Employment/>
         <hr/>

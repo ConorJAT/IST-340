@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { getData } from '../../utils/getData';
 import DegreeGroup from './DegreeGroup';
 
-const DegreeAccords = () => {
+const Degrees = () => {
     // Use states.
     const [loaded, setLoaded] = useState(false);
     const [dataObj, setDataObj] = useState();
@@ -34,4 +34,4 @@ const DegreeAccords = () => {
     )
 };
 
-export default DegreeAccords;
+export default Degrees;
