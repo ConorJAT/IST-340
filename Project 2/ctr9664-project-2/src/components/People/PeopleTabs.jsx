@@ -52,12 +52,12 @@ const PeopleTabs = () => {
 
   // Return content, if exists.
   return (
-    <>
+    <div className='people'>
       <h1>{dataObj.title}</h1>
       <h3>{dataObj.subTitle}</h3>
 
       <Tab panes={panes} />
-    </>
+    </div>
     
   );
 }; 

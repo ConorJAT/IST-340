@@ -41,42 +41,125 @@ const App = () => {
     );
   }
 
-  // Return for after data is loaded.
-  return (
-    <>
-      <nav className='nav'>
-        <h1 className='nav-title'>RIT iSchool</h1>
-        <div className='nav-tabs'>
-          <div className='nav-tab'>Our People</div>
-          <div className='nav-tab'>Degrees</div>
-          <div className='nav-tab'>Minors</div>
-          <div className='nav-tab'>Employment</div>
-        </div>
-      </nav>
-        
-      <div className="app">
-        <div className="about">
-          <h2>{dataObj.title}</h2>
-          <h3>{dataObj.description}</h3>
-          <div className="abt-quote">
-            <p className="quote">{dataObj.quote}</p>
-            <p> -- {dataObj.quoteAuthor}</p>
+  switch (currentPage) {
+    case "people":
+      return (
+        <>
+          <nav className='nav'>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <div className='nav-tabs'>
+              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
+            </div>
+          </nav>
+
+          <div className="img-container">
+            <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
           </div>
-        </div>
-        <hr/>
 
-        {/* Put components here. */}
-        <PeopleTabs/>
-        <hr/>
-        <Degrees/>
-        <hr/>
-        <Employment/>
-        <hr/>
-        <Minors/>
+          <PeopleTabs/>
+        </>
+      );
+    
+    case "degree":
+      return (
+        <>
+          <nav className='nav'>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <div className='nav-tabs'>
+              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
+            </div>
+          </nav>
 
-      </div>
-    </>
-  );
+          <div className="img-container">
+            <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
+          </div>
+
+          <div className="app">
+            <Degrees/>
+          </div>
+        </>
+      );
+    
+    case "minors":
+      return (
+        <>
+          <nav className='nav'>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <div className='nav-tabs'>
+              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
+            </div>
+          </nav>
+
+          <div className="img-container">
+            <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
+          </div>
+
+          <div className="app">
+            <Minors/>
+          </div>
+        </>
+      );
+
+    case "employment":
+      return (
+        <>
+          <nav className='nav'>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <div className='nav-tabs'>
+              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
+            </div>
+          </nav>
+
+          <div className="img-container">
+            <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
+          </div>
+
+          <div className="app">
+            <Employment/>
+          </div>
+        </>
+      );
+
+    default:
+      return (
+        <>
+          <nav className='nav'>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <div className='nav-tabs'>
+              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
+              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
+            </div>
+          </nav>
+
+          <div className="img-container">
+            <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
+          </div>
+
+          <div className="about">
+            <h2>{dataObj.title}</h2>
+            <h3>{dataObj.description}</h3>
+            <div className="abt-quote">
+              <p className="quote">{dataObj.quote}</p>
+              <p> -- {dataObj.quoteAuthor}</p>
+            </div>
+          </div>
+        </>
+      );
+  }
 };
 
 export default App;
