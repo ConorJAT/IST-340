@@ -18,6 +18,7 @@ const App = () => {
   // Setup States.
   const [loaded, setLoaded] = React.useState(false);
   const [dataObj, setDataObj] = React.useState();
+  const [currentPage, setCurrentPage] = React.useState('home');
 
   // Go get data.
   React.useEffect( () => {
@@ -43,9 +44,15 @@ const App = () => {
   // Return for after data is loaded.
   return (
     <>
-      <div className="sticky">
-        <h1>Welome to the RIT iSchool!</h1>
-      </div>
+      <nav className='nav'>
+        <h1 className='nav-title'>RIT iSchool</h1>
+        <div className='nav-tabs'>
+          <div className='nav-tab'>Our People</div>
+          <div className='nav-tab'>Degrees</div>
+          <div className='nav-tab'>Minors</div>
+          <div className='nav-tab'>Employment</div>
+        </div>
+      </nav>
         
       <div className="app">
         <div className="about">

@@ -5,6 +5,7 @@
 
 .peopleList>*{
     flex: 1 1 200px;
+    /* flex: auto; */
 }
 
 .peopleListItem {
