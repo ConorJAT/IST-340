@@ -1,0 +1,80 @@
+.employment {
+    padding: 30px;
+}
+
+.employment>h3 {
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.emp-types {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.type {
+    width: 45%;
+}
+
+.emp-stats {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.stat {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1/1;
+    width: 22%;
+    max-height: 22%;
+    padding: 10px;
+
+    background-color: rgb(235, 129, 7, 0.4);
+    transition: 0.2s;
+}
+
+.stat>h3 {
+    font-size: 18pt;
+    text-align: center;
+}
+
+.stat>p {
+    font-size: 10pt;
+}
+
+.stat:hover {
+    background-color: rgb(235, 129, 7, 0.7);
+    transform: scale(1.10);
+}
+
+.emp-employers, .emp-careers {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.employer, .career {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1/1;
+    width: 15%;
+    max-height: 15%;
+    padding: 10px;
+
+    font-size: 12pt;
+    text-align: center;
+    font-weight: 700; 
+
+    background-color: rgb(235, 129, 7, 0.4);
+    transition: 0.2s;
+}
+
+.employer:hover, .career:hover {
+    background-color: rgb(235, 129, 7, 0.7);
+    transform: scale(1.10);
+}

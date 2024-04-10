@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { TabPane, Tab } from 'semantic-ui-react';
 
 // Import utils.
 import { getData } from '../../utils/getData';
 import { formatTableData } from '../../utils/formatTableData';
 
 import EmploymentTabs from './EmploymentTabs';
+
+import './Employment.css';
 
 const Employment = () => {
     // Use states.
@@ -32,14 +33,14 @@ const Employment = () => {
     const formattedEmployment = formatTableData(dataObj.employmentTable);
 
     return (
-        <>
+        <div className='employment'>
             <h1>Employment Information</h1>
             <h3>{dataObj.introduction.title}</h3>
 
-            <div>
+            <div className='emp-types'>
                 {dataObj.introduction.content.map((section) => {
                     return (
-                        <div>
+                        <div className='type'>
                             <h2>{section.title}</h2>
                             <p>{section.description}</p>
                         </div>
@@ -48,10 +49,10 @@ const Employment = () => {
             </div>
 
             <h2>{dataObj.degreeStatistics.title}</h2>
-            <div>
+            <div className='emp-stats'>
                 {dataObj.degreeStatistics.statistics.map((stat) => {
                     return (
-                        <div>
+                        <div className='stat'>
                             <h3>{stat.value}</h3>
                             <p>{stat.description}</p>
                         </div>
@@ -60,31 +61,31 @@ const Employment = () => {
             </div>
 
             <h2>{dataObj.employers.title}</h2>
-            <div>
+            <div className='emp-employers'>
                 {dataObj.employers.employerNames.map((name) => {
                     return (
                         // <div>
                         //     <p>{name}</p>
                         // </div>
-                        <span>{name}</span>
+                        <span className='employer'>{name}</span>
                     );
                 })}
             </div>
 
             <h2>{dataObj.careers.title}</h2>
-            <div>
+            <div className='emp-careers'>
                 {dataObj.careers.careerNames.map((name) => {
                     return (
                         // <div>
                         //     <p>{name}</p>
                         // </div>
-                        <span>{name}</span>
+                        <span className='career'>{name}</span>
                     );
                 })}
             </div>
 
             <EmploymentTabs baseObj={{formattedCoops, formattedEmployment}}/>
-        </>
+        </div>
     );
 };
 
