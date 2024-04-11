@@ -5,6 +5,8 @@ import { getData } from '../../utils/getData';
 
 import MinorAccordian from './MinorAccordian';
 
+import './Minors.css';
+
 const Minors = () => {
     // Use states.
     const [loaded, setLoaded] = useState(false);
@@ -27,8 +29,9 @@ const Minors = () => {
     }
 
     return (
-        <>
+        <div className='minors'>
             <h1>Our Undergrad Minor Programs</h1>
+            <div className="minor-accords">
             {
                 dataObj.UgMinors.map(minor => {
                     return (
@@ -36,7 +39,8 @@ const Minors = () => {
                     );
                 })
             }
-        </>
+            </div>
+        </div>
     )
 };
 

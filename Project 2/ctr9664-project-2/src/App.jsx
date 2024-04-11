@@ -46,7 +46,10 @@ const App = () => {
       return (
         <>
           <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
+              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
+              RIT iSchool
+            </h1>
             <div className='nav-tabs'>
               <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
               <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
@@ -67,7 +70,10 @@ const App = () => {
       return (
         <>
           <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
+              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
+              RIT iSchool
+            </h1>
             <div className='nav-tabs'>
               <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
               <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
@@ -90,7 +96,10 @@ const App = () => {
       return (
         <>
           <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
+              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
+              RIT iSchool
+            </h1>
             <div className='nav-tabs'>
               <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
               <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
@@ -113,7 +122,10 @@ const App = () => {
       return (
         <>
           <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
+              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
+              RIT iSchool
+            </h1>
             <div className='nav-tabs'>
               <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
               <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
@@ -136,7 +148,10 @@ const App = () => {
       return (
         <>
           <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>RIT iSchool</h1>
+            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
+              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
+              RIT iSchool
+            </h1>
             <div className='nav-tabs'>
               <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
               <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>

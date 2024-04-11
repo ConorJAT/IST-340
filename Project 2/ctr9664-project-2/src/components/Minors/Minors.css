@@ -1,0 +1,41 @@
+.minors {
+    padding: 30px;
+}
+
+.minors>h1 {
+    font-size: 28pt;
+}
+
+.minor-accords {
+    padding-left: 20px;
+}
+
+.minor-name {
+    font-size: 14pt;
+}
+
+.minor-section {
+    display: flex;
+    column-gap: 10px;
+}
+
+.minor-section>p {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12pt;
+}
+
+.minor-courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.course {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { getData } from '../../utils/getData';
 import DegreeGroup from './DegreeGroup';
 
+import './Degrees.css';
+
 const Degrees = () => {
     // Use states.
     const [loaded, setLoaded] = useState(false);
@@ -26,11 +28,11 @@ const Degrees = () => {
     }
 
     return (
-        <>
+        <div className='degrees'>
             <h1>Our Degrees</h1>
             <DegreeGroup type='Undergraduate' degreeList={dataObj.undergraduate}/>
             <DegreeGroup type='Graduate' degreeList={dataObj.graduate}/>
-        </>
+        </div>
     )
 };
 

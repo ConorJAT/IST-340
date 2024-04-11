@@ -2,28 +2,33 @@ import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const DegreeAccordian = ({degree}) => {
   if (degree.title) {
-    let cString = '';
-    for (let i = 0; i < degree.concentrations.length; i++){
-        if (i === degree.concentrations.length - 1) { cString += degree.concentrations[i]; }
-        else { cString += degree.concentrations[i] + ', '; }
-    }
-
     return (
         <div>
             <Accordion>
-                <AccordionSummary
+                <AccordionSummary 
+                expandIcon={<ArrowDownwardIcon/>}
                 aria-controls="panel1-content"
                 id="panel1-header"
                 >
-                    {degree.title} - {degree.degreeName ? degree.degreeName.toUpperCase() : "GAC"}
+                    <h4 className='deg-name'>{degree.title} - {degree.degreeName ? degree.degreeName.toUpperCase() : "GAC"}</h4>
                 </AccordionSummary>
                 <AccordionDetails>
-                    {degree.description}
-                    {<br/>}{<br/>}
-                    Concentrations: {cString}
+                    <p className='deg-content'>{degree.description}</p>
+                    <br/>
+                    <div className="deg-section">
+                        <p className='deg-content'>Concentrations: </p>
+                        <div className="deg-concents">
+                            {degree.concentrations.map((c) => { 
+                                return (
+                                    <span className="concent">{c}</span>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </AccordionDetails>
             </Accordion>
         </div>
@@ -40,13 +45,23 @@ const DegreeAccordian = ({degree}) => {
     <div>
         <Accordion>
             <AccordionSummary
+            expandIcon={<ArrowDownwardIcon/>}
             aria-controls="panel1-content"
             id="panel1-header"
             >
-                Graduate Advanced Certificates
+                <h4 className='deg-name'>Graduate Advanced Certificates</h4>
             </AccordionSummary>
             <AccordionDetails>
-                Availible Certificates: {dString}
+                <div className="deg-section">
+                    <p className='deg-content'>Availible Certificates: </p>
+                    <div className="deg-concents">
+                        {degree.availableCertificates.map((c) => { 
+                            return (
+                                <span className="concent">{c}</span>
+                            );
+                        })}
+                    </div>
+                </div>
             </AccordionDetails>
         </Accordion>
     </div>

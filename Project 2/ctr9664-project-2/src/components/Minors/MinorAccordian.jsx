@@ -2,6 +2,7 @@ import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 import CourseModal from './CourseModal';
 
@@ -12,23 +13,27 @@ const MinorAccordian = ({minorInfo}) => {
             <div>
                 <Accordion>
                 <AccordionSummary
+                    expandIcon={<ArrowDownwardIcon/>}
                     aria-controls="panel1-content"
                     id="panel1-header"
                     >
-                        {minorInfo.title}
+                        <h4 className='minor-name'>{minorInfo.title}</h4>
                     </AccordionSummary>
                     <AccordionDetails>
-                        Minor Code - {minorInfo.name}
-                        <br/><br/>
-                        About - {minorInfo.description}
-                        <br/><br/>
-                        <div>
-                            {minorInfo.courses.map(course => {
-                                return(<CourseModal course={course}/>);
-                            })}
+                        <p className="minor-ctnt">Minor Code: {minorInfo.name}</p>
+                        <br/>
+                        <p className="minor-ctnt">{minorInfo.description}</p>
+                        <br/>
+                        <div className='minor-section'>
+                            <p className="minor-ctnt">Required Classes: </p>
+                            <div className="minor-courses">
+                                {minorInfo.courses.map(course => {
+                                    return(<div className="course"><CourseModal course={course}/></div>);
+                                })}
+                            </div>
                         </div>
-                        <br/><br/>
-                        Note - {minorInfo.note}
+                        <br/>
+                        <p className="minor-ctnt">(Note: {minorInfo.note})</p>
                     </AccordionDetails>
                 </Accordion>
             </div>
@@ -39,20 +44,24 @@ const MinorAccordian = ({minorInfo}) => {
         <div>
             <Accordion>
             <AccordionSummary
+                expandIcon={<ArrowDownwardIcon/>}
                 aria-controls="panel1-content"
                 id="panel1-header"
                 >
-                    {minorInfo.title}
+                    <h4 className='minor-name'>{minorInfo.title}</h4>
                 </AccordionSummary>
                 <AccordionDetails>
-                    Minor Code - {minorInfo.name}
-                    <br/><br/>
-                    About - {minorInfo.description}
-                    <br/><br/>
-                    <div>
-                        {minorInfo.courses.map(course => {
-                            return(<CourseModal course={course}/>);
-                        })}
+                    <p className="minor-ctnt">Minor Code: {minorInfo.name}</p>
+                    <br/>
+                    <p className="minor-ctnt">{minorInfo.description}</p>
+                    <br/>
+                    <div className='minor-section'>
+                        <p className="minor-ctnt">Required Classes: </p>
+                        <div className="minor-courses">
+                            {minorInfo.courses.map(course => {
+                                return(<div className="course"><CourseModal course={course}/></div>);
+                            })}
+                        </div>
                     </div>
                 </AccordionDetails>
             </Accordion>

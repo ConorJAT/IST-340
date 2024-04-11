@@ -6,7 +6,7 @@ body{
 /* ROOT STYLES */
 #root {
   margin: 0 auto;
-  min-width: 690px;
+  min-width: 750px;
   max-width: 1280px;
   border: 2px solid black;
 }
@@ -23,6 +23,11 @@ body{
 }
 
 .nav-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  
   margin: 0;
   padding: 15px;
 
