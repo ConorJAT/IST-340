@@ -2,6 +2,10 @@
     padding: 30px;
 }
 
+.emp-header {
+    font-size: 28pt;
+}
+
 .employment>h3 {
     padding-left: 20px;
     margin-bottom: 30px;
@@ -77,4 +81,8 @@
 .employer:hover, .career:hover {
     background-color: rgb(235, 129, 7, 0.7);
     transform: scale(1.10);
+}
+
+.emp-data {
+    margin-top: 30px;
 }

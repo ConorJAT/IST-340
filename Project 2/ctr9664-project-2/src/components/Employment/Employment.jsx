@@ -34,7 +34,7 @@ const Employment = () => {
 
     return (
         <div className='employment'>
-            <h1>Employment Information</h1>
+            <h1 className='emp-header'>Employment Information</h1>
             <h3>{dataObj.introduction.title}</h3>
 
             <div className='emp-types'>
@@ -48,7 +48,7 @@ const Employment = () => {
                 })}
             </div>
 
-            <h2>{dataObj.degreeStatistics.title}</h2>
+            <h2 className='emp-header'>{dataObj.degreeStatistics.title}</h2>
             <div className='emp-stats'>
                 {dataObj.degreeStatistics.statistics.map((stat) => {
                     return (
@@ -60,31 +60,29 @@ const Employment = () => {
                 })}
             </div>
 
-            <h2>{dataObj.employers.title}</h2>
+            <h2 className='emp-header'>{dataObj.employers.title}</h2>
             <div className='emp-employers'>
                 {dataObj.employers.employerNames.map((name) => {
                     return (
-                        // <div>
-                        //     <p>{name}</p>
-                        // </div>
+
                         <span className='employer'>{name}</span>
                     );
                 })}
             </div>
 
-            <h2>{dataObj.careers.title}</h2>
+            <h2 className='emp-header'>{dataObj.careers.title}</h2>
             <div className='emp-careers'>
                 {dataObj.careers.careerNames.map((name) => {
                     return (
-                        // <div>
-                        //     <p>{name}</p>
-                        // </div>
                         <span className='career'>{name}</span>
                     );
                 })}
             </div>
 
-            <EmploymentTabs baseObj={{formattedCoops, formattedEmployment}}/>
+            <div className="emp-data">
+                <h2 className='emp-header'>Table of Employers</h2>
+                <EmploymentTabs baseObj={{formattedCoops, formattedEmployment}}/>
+            </div>
         </div>
     );
 };
