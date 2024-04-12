@@ -35,7 +35,7 @@ const Minors = () => {
             {
                 dataObj.UgMinors.map(minor => {
                     return (
-                        <MinorAccordian minorInfo={minor}/>
+                        <MinorAccordian key={minor.name} minorInfo={minor}/>
                     );
                 })
             }

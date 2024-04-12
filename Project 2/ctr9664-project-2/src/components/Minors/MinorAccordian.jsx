@@ -28,7 +28,7 @@ const MinorAccordian = ({minorInfo}) => {
                             <p className="minor-ctnt">Required Classes: </p>
                             <div className="minor-courses">
                                 {minorInfo.courses.map(course => {
-                                    return(<div className="course"><CourseModal course={course}/></div>);
+                                    return(<div key={minorInfo.name + ':' + course} className="course"><CourseModal course={course}/></div>);
                                 })}
                             </div>
                         </div>
@@ -59,7 +59,7 @@ const MinorAccordian = ({minorInfo}) => {
                         <p className="minor-ctnt">Required Classes: </p>
                         <div className="minor-courses">
                             {minorInfo.courses.map(course => {
-                                return(<div className="course"><CourseModal course={course}/></div>);
+                                return(<div key={minorInfo.name + ':' + course} className="course"><CourseModal course={course}/></div>);
                             })}
                         </div>
                     </div>

@@ -1,6 +1,12 @@
 // Import React tools.
-import React, { useState } from 'react';
-// import * as React from 'react';
+import React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import MenuIcon from '@mui/icons-material/Menu';
 
 // Import components.
 import PeopleTabs from './components/People/PeopleTabs';
@@ -19,6 +25,7 @@ const App = () => {
   const [loaded, setLoaded] = React.useState(false);
   const [dataObj, setDataObj] = React.useState();
   const [currentPage, setCurrentPage] = React.useState('home');
+  const [menuOpen, setMenuOpen] = React.useState(false);
 
   // Go get data.
   React.useEffect( () => {
@@ -41,22 +48,59 @@ const App = () => {
     );
   }
 
+  const toggleDrawer = (newOpen) => () => {
+    setMenuOpen(newOpen);
+  };
+
+  const mobileMenu = [
+    { name: "Home", value: "home" },
+    { name: "Our People", value: "people" },
+    { name: "Degrees", value: "degree" },
+    { name: "Minors", value: "minors" },
+    { name: "Employment", value: "employment" }
+  ];
+
+  const DrawerList = (
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List>
+        {mobileMenu.map((subject) => (
+          <ListItem key={subject.value} disablePadding>
+            <ListItemButton onClick={() => setCurrentPage(subject.value)}>
+              <ListItemText primary={subject.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const navbar = (
+    <>
+      <nav className='nav'>
+        <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
+          <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
+          RIT iSchool
+        </h1>
+        <div className='nav-tabs'>
+          <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
+          <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
+          <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
+          <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
+          <div className='nav-mobile' onClick={{} = toggleDrawer(true)}><MenuIcon fontSize='large'/></div>
+        </div>
+      </nav>
+
+      <Drawer open={menuOpen} onClose={toggleDrawer(false)}>
+            {DrawerList}
+      </Drawer>
+    </>
+  );
+
   switch (currentPage) {
     case "people":
       return (
         <>
-          <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
-              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
-              RIT iSchool
-            </h1>
-            <div className='nav-tabs'>
-              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
-            </div>
-          </nav>
+          {navbar}
 
           <div className="img-container">
             <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
@@ -69,18 +113,7 @@ const App = () => {
     case "degree":
       return (
         <>
-          <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
-              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
-              RIT iSchool
-            </h1>
-            <div className='nav-tabs'>
-              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
-            </div>
-          </nav>
+          {navbar}
 
           <div className="img-container">
             <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
@@ -95,18 +128,7 @@ const App = () => {
     case "minors":
       return (
         <>
-          <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
-              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
-              RIT iSchool
-            </h1>
-            <div className='nav-tabs'>
-              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
-            </div>
-          </nav>
+          {navbar}
 
           <div className="img-container">
             <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
@@ -121,18 +143,7 @@ const App = () => {
     case "employment":
       return (
         <>
-          <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
-              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
-              RIT iSchool
-            </h1>
-            <div className='nav-tabs'>
-              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
-            </div>
-          </nav>
+          {navbar}
 
           <div className="img-container">
             <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>
@@ -147,18 +158,7 @@ const App = () => {
     default:
       return (
         <>
-          <nav className='nav'>
-            <h1 className='nav-title' onClick={() => setCurrentPage('home')}>
-              <img src='./src/assets/ischool-logo.png' alt='Logo of RIT iSchool.' width='45px' height='45px'/>
-              RIT iSchool
-            </h1>
-            <div className='nav-tabs'>
-              <div className='nav-tab' onClick={() => setCurrentPage('people')}>Our People</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('degree')}>Degrees</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('minors')}>Minors</div>
-              <div className='nav-tab' onClick={() => setCurrentPage('employment')}>Employment</div>
-            </div>
-          </nav>
+          {navbar}
 
           <div className="img-container">
             <img src='./src/assets/golisano.jpg' alt="Image of Golisano College." className="page-img"/>

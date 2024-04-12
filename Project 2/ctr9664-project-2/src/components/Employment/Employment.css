@@ -86,3 +86,17 @@
 .emp-data {
     margin-top: 30px;
 }
+
+@media only screen and (max-width: 750px){
+    .stat>h3 {
+        font-size: 12pt;
+    }
+    
+    .stat>p {
+        font-size: 8pt;
+    }
+    
+    .employer, .career {
+        font-size: 8pt;
+    }
+}
