@@ -42,6 +42,9 @@ const PeopleModal = ({person}) => {
             {(person.title ? `Title: ${person.title}` : '')}
           </Typography>
           <Typography variant="h6" component="h2">
+            {(person.interestArea ? `Interests: ${person.interestArea}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
             {(person.office ? `Office: ${person.office}` : '')}
           </Typography>
           <Typography variant="h6" component="h2">
@@ -49,6 +52,9 @@ const PeopleModal = ({person}) => {
           </Typography>
           <Typography variant="h6" component="h2">
             {(person.email ? `Email: ${person.email}` : '')}
+          </Typography>
+          <Typography variant="h6" component="h2">
+            {(person.website ? `Website: ${person.website}` : '')}
           </Typography>
           <Typography variant="h6" component="h2">
             {(person.twitter ? `Twitter: ${person.twitter}` : '')}
