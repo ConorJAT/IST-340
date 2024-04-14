@@ -1,11 +1,14 @@
+// Import React tools.
 import React, { useState } from 'react';
+
+// Import component.
+import EmploymentTabs from './EmploymentTabs';
 
 // Import utils.
 import { getData } from '../../utils/getData';
 import { formatTableData } from '../../utils/formatTableData';
 
-import EmploymentTabs from './EmploymentTabs';
-
+// Import CSS.
 import './Employment.css';
 
 const Employment = () => {
@@ -29,9 +32,11 @@ const Employment = () => {
         );
     }
 
+    // Format all employment data.
     const formattedCoops = formatTableData(dataObj.coopTable);
     const formattedEmployment = formatTableData(dataObj.employmentTable);
 
+    // Return for when data is loaded.
     return (
         <div className='employment'>
             <h1 className='emp-header'>Employment Information</h1>

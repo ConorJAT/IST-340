@@ -6,6 +6,4 @@ import App from './App.jsx'
 // Importing from Semantic UI.
 import 'semantic-ui-css/semantic.min.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <App />
-)
+ReactDOM.createRoot(document.getElementById('root')).render( <App/> );

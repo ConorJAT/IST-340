@@ -1,8 +1,11 @@
+// Import React tools.
 import React from 'react';
 
+// Import component.
 import PeopleModal from './PeopleModel';
 
 const PeopleGroup = ({title, whichGroup}) => {
+    // Return a displayed group of individuals (staff or faculty).
     return (
         <>
             <h2>{title}</h2>

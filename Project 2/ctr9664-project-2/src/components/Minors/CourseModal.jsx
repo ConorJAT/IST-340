@@ -1,3 +1,4 @@
+// Import React tools.
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,6 +8,7 @@ import Modal from '@mui/material/Modal';
 // Import utils.
 import { getData } from '../../utils/getData';
 
+// Set style for class modal.
 const style = {
   position: 'absolute',
   top: '50%',
@@ -20,11 +22,12 @@ const style = {
 };
 
 const CourseModal = ({course}) => {
+  // Use modal states.
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // Use states.
+  // Use loading states.
   const [loaded, setLoaded] = React.useState(false);
   const [dataObj, setDataObj] = React.useState();
 
@@ -58,6 +61,7 @@ const CourseModal = ({course}) => {
     );
   }
 
+  // Return for data that is already loaded.
   return (
     <div>
       <Button onClick={handleOpen}>{course}</Button>

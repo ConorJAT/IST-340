@@ -1,10 +1,13 @@
+// Import React tools.
 import React, { useState } from 'react';
+
+// Import components.
+import MinorAccordian from './MinorAccordian';
 
 // Import utils.
 import { getData } from '../../utils/getData';
 
-import MinorAccordian from './MinorAccordian';
-
+// Import CSS.
 import './Minors.css';
 
 const Minors = () => {
@@ -28,6 +31,7 @@ const Minors = () => {
         );
     }
 
+    // Return minors content to display.
     return (
         <div className='minors'>
             <h1>Our Undergrad Minor Programs</h1>

@@ -39,19 +39,19 @@ const App = () => {
   // Return for before data is loaded.
   if (!loaded) {
     return (
-      <>
-        <div className="sticky">
-          <h1>Welome to the RIT iSchool!</h1>
-          <div>Loading Data...</div>
-        </div>
-      </>
+      <div>
+        <h1>Welome to the RIT iSchool!</h1>
+        <div>Loading Data...</div>
+      </div>
     );
   }
 
+  // Setup mobile/hamburger menu toggle.
   const toggleDrawer = (newOpen) => () => {
     setMenuOpen(newOpen);
   };
 
+  // Setup mobile/hamburger menu content.
   const mobileMenu = [
     { name: "Home", value: "home" },
     { name: "Our People", value: "people" },
@@ -60,6 +60,7 @@ const App = () => {
     { name: "Employment", value: "employment" }
   ];
 
+  // Setup mobile/hamburger menu object.
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
@@ -74,6 +75,7 @@ const App = () => {
     </Box>
   );
 
+  // Setup navbar object.
   const navbar = (
     <>
       <nav className='nav'>
@@ -96,7 +98,9 @@ const App = () => {
     </>
   );
 
+  // Page state tracking to only display one page's content at a time.
   switch (currentPage) {
+    // People content:
     case "people":
       return (
         <>
@@ -110,6 +114,7 @@ const App = () => {
         </>
       );
     
+    // Degree content:
     case "degree":
       return (
         <>
@@ -125,6 +130,7 @@ const App = () => {
         </>
       );
     
+    // Undergrad minor content:
     case "minors":
       return (
         <>
@@ -140,6 +146,7 @@ const App = () => {
         </>
       );
 
+    // Employment content:
     case "employment":
       return (
         <>
@@ -155,6 +162,7 @@ const App = () => {
         </>
       );
 
+    // Default (home) content:
     default:
       return (
         <>

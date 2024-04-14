@@ -1,9 +1,13 @@
+// Import React tools.
 import React, { useState } from 'react';
+
+// Import components.
+import DegreeGroup from './DegreeGroup';
 
 // Import utils.
 import { getData } from '../../utils/getData';
-import DegreeGroup from './DegreeGroup';
 
+// Import CSS.
 import './Degrees.css';
 
 const Degrees = () => {
@@ -27,6 +31,7 @@ const Degrees = () => {
         );
     }
 
+    // Return for when data is loaded.
     return (
         <div className='degrees'>
             <h1>Our Degrees</h1>

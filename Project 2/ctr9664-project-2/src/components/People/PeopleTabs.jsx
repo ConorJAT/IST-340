@@ -1,3 +1,4 @@
+// Import React tools.
 import React, { useState } from 'react';
 import { TabPane, Tab } from 'semantic-ui-react';
 
@@ -9,15 +10,6 @@ import PeopleGroup from './PeopleGroup';
 
 // Import CSS.
 import './People.css';
-
-const panes = [
-  { menuItem: 'Faculty', render: () => <TabPane>
-    <PeopleGroup title='Faculty' whichGroup={dataObj.faculty}/>
-  </TabPane> },
-  { menuItem: 'Staff', render: () => <TabPane>
-    <PeopleGroup title='Staff' whichGroup={dataObj.staff}/>
-  </TabPane> },
-];
 
 const PeopleTabs = () => {
   // Use states.

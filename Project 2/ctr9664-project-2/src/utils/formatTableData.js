@@ -1,6 +1,9 @@
 let columns = [];
 
+// formatTableData(employObj) - Formats employer data to be displayed into a table.
+// employObj: Employment object containing information to format.
 export const formatTableData = (employObj) => {
+    // Coop table formatting.
     if (employObj.title === "Co-op Table") {
         let coopRows = [];
 
@@ -16,7 +19,8 @@ export const formatTableData = (employObj) => {
         ];
 
         return {columns, rows: coopRows};
-        
+    
+    // Career table formatting.
     } else {
         let careerRows = [];
 

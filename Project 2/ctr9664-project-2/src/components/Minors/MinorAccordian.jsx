@@ -1,13 +1,15 @@
+// Import React tools.
 import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
+// Import components.
 import CourseModal from './CourseModal';
 
 const MinorAccordian = ({minorInfo}) => {
-       
+    // Return content if there is note present.
     if (minorInfo.note) {
         return (
             <div>
@@ -40,6 +42,7 @@ const MinorAccordian = ({minorInfo}) => {
         );
     }
 
+    // Return content if there is no note.
     return (
         <div>
             <Accordion>

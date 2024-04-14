@@ -91,6 +91,7 @@ body{
   padding-left: 20px;
 }
 
+/* MEDIA QUERY TO DISPLAY MOBILE MENU AT SMALL WIDTHS */
 @media only screen and (max-width: 750px){
   .nav-tab {
     display: none;

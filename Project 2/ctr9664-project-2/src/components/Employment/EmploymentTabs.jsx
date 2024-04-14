@@ -1,6 +1,8 @@
+// Import React tools.
 import React from 'react';
 import { TabPane, Tab } from 'semantic-ui-react';
 
+// Import component.
 import EmploymentPagTable from './EmploymentPagTable';
 
 const EmploymentTabs = ({baseObj}) => {

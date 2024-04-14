@@ -1,3 +1,4 @@
+// Import React tools.
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -9,18 +10,22 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const EmploymentPagTable = ({employObj}) => {
+    // Use states (for pagnation).
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+    // Event to change pages of data.
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
 
+    // Event to change how many rows per page.
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(event.target.value);
         setPage(0);
     };
 
+    // Return contructed table.
     return (
         <>
             <Paper sx={{ width: '100%', overflow: 'hidden' }}>
