@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+    
+    <script>
+        $(document).ready( function() {
+            // $('h2').css('color', 'aquamarine');
+
+            // Chaining jQuery
+            $('h2').on('click', function() {
+                $(this).slideUp('500');
+            }).eq(0).hover(
+                function() {
+                    // On roll over.
+                    $(this).addClass('hilite');
+                },
+
+                function() {
+                    // On roll out.
+                    $(this).removeClass('hilite');
+                }
+            ).end().slice(1).on({
+                click: function() {
+                    $(this).html('Clicked Me!');
+                },
+
+                mouseenter: function() {
+                    $(this).addClass('warning');
+                },
+
+                mouseleave: function() {
+                    $(this).removeClass('warning');
+                }
+            });
+        });
+    </script>
+
+    <style type="text/css">
+      button { display:block; margin:3px; color:red; width:200px; }
+      div { color:red; border:2px solid blue; width:200px; margin:3px; text-align:center; }
+      h2 { color:red; margin:5px; cursor:pointer; }
+      h2.hilite { background:yellow; }
+      .warning{background:red;color:white;}
+    </style>
+
+	<meta charset="utf-8" />
+    <title>jQuery methods</title>
+</head>
+<body>
+    <h2>create something</h2>
+    <select id="selectBox">
+        <option value="0">
+            0
+        </option>
+        <option value="1">
+            1
+        </option>
+        <option value="2">
+            2
+        </option>
+        <option value="3">
+            3
+        </option>
+        <option value="4">
+            4
+        </option>
+        <option value="5">
+            5
+        </option>
+    </select>
+    <hr />
+    <h2>an h2 element</h2>
+    <h2>another h2 element</h2>
+</body>
+</html>

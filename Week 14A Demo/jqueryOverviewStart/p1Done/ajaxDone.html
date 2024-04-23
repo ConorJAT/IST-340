@@ -1,0 +1,55 @@
+<!-- you must upload this to a server for it to work (http/https only),
+working version: https://people.rit.edu/dsbics/340/jQuery/ajaxDone.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Using $.ajax() to get XML</title>
+    <script
+  		src="https://code.jquery.com/jquery-3.7.1.min.js"
+  		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  		crossorigin="anonymous"></script>	
+  	<script>
+		//quick example of the use of jQuery library
+		//The code will create a new select/option menu as long as there is another xml file to consume
+		//(based upon name of last)
+		$(document).ready(function(){
+			$(document).on('change','select',function(){
+				Const($(this).val());
+			});
+			Const('sandwiches');
+		 });
+		 function Const(val){
+			$.ajax({
+				type:'get',
+				url: val+".xml",
+				dataType:'xml',
+				cache:false,
+				async:true,
+				beforeSend:function(){
+					//turn on spinner or some such thing
+				}
+			}).always(function(){
+				//kill spinner or cleanup
+			}).fail(function(xhr, textStatus){
+				console.log(textStatus);
+			}).done(function(msg){
+				//do something with the return value!
+				var x='';
+				x+='<select style="display:none;">';
+				$('sandwich',msg).each(
+					function(){
+						x+='<option value="'+$(this).text()+'\">'+$(this).text()+'</option>';
+					}
+				);
+				$('form:first').append(x+'</select>'); 
+				$('select:last').fadeIn('slow');
+			});
+		 }
+    </script>
+  </head>
+  <body>
+    <h1>Using $.ajax() to get XML</h1>
+    <form>
+    </form>
+  </body>
+</html>

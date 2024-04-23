@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@mui/styled-engine": "^5.15.14",
-    "@mui/x-data-grid": "^7.1.0"
-  }
-}
